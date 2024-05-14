@@ -15,6 +15,44 @@
             <div id="formulario">
                 <h1>Aqui você coloca os dados</h1>
                 <p>
+                <?php
+                
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "glassboard";
+
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    
+                    if ($conn->connect_error) {
+                        die("Falha na conexão: " . $conn->connect_error);
+                    }
+
+                    
+                    $nome = $_POST["primeironome"];
+                    $email = $_POST["primeirologin"];
+                    $senha = $_POST["primeirasenha"];
+
+                    
+                    $sql = "INSERT INTO usuarios (nome, email, senha)
+                    VALUES ('$nome', '$email', '$senha')";
+
+                    if ($conn->query($sql) === TRUE) {
+                        echo "Registro inserido com sucesso";
+                    } else {
+                        echo "Erro ao inserir registro: " . $conn->error;
+                    }
+
+                    
+                    $conn->close();
+                }
+                ?>
+
+                </p>
+                <p>
                 <form action="cadastro.php" method="post">
                 <div class="campo">
                         <span class="material-symbols-outlined">person</span>
@@ -31,7 +69,7 @@
                         <input type="password" name="primeirasenha" id="iprimeirasenha" placeholder="Sua senha" autocomplete="current-password" required minlength="8" maxlength="30">
                         <label for="iprimeirasenha">Crie uma senha</label>
                     </div>
-                    <input type="submit" value="Entrar">
+                    <input type="submit" value="Cadastrar-se">
                 </form>
 
                     <form method="get" action="index.html">

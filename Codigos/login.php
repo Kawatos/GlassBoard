@@ -17,17 +17,35 @@
                 <p>
                 <?php 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $phpusuarioemail = "kauasilvamattos0000@gmail.com"; 
-                    $phpsenha = "12345678"; 
-                    
-                    if ($_POST["login"] == $phpusuarioemail && $_POST["senha"] == $phpsenha) {
-                        //header("Location: sucesso.php");
-                        echo "Sucesso!!";
-                        
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "glassboard";
+                
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                
+                    if ($conn->connect_error) {
+                        die("Falha na conexão: " . $conn->connect_error);
+                    }
+                
+                    $login = mysqli_real_escape_string($conn, $_POST["login"]);
+                    $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
+                
+                    $sql = "SELECT * FROM usuarios WHERE primeirologin='$login' AND primeirasenha='$senha'";
+                    $result = $conn->query($sql);
+                
+                    if ($result->num_rows > 0) {
+                        echo "Sucesso!";
+                        // Iniciar a sessão e redirecionar para a página de sucesso
+                        session_start();
+                        $_SESSION['login'] = $login;
+                        header("Location: sucesso.php");
                         exit();
                     } else {
                         echo "Usuário ou senha inválidos.";
                     }
+                
+                    $conn->close();
                 }
                 ?>
                 </p>
