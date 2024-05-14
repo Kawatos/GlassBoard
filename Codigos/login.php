@@ -31,7 +31,7 @@
                     $login = mysqli_real_escape_string($conn, $_POST["login"]);
                     $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
                 
-                    $sql = "SELECT * FROM usuarios WHERE primeirologin='$login' AND primeirasenha='$senha'";
+                    $sql = "SELECT * FROM usuarios WHERE email='$login' AND senha='$senha'";
                     $result = $conn->query($sql);
                 
                     if ($result->num_rows > 0) {
