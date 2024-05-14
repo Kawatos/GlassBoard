@@ -16,6 +16,8 @@
                 <h1>GlassBoard Login</h1>
                 <p>
                 <?php 
+                session_start();
+
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $servername = "localhost";
                     $username = "root";
@@ -35,10 +37,10 @@
                     $result = $conn->query($sql);
                 
                     if ($result->num_rows > 0) {
-                        echo "Sucesso!";
-                        // Iniciar a sessão e redirecionar para a página de sucesso
-                        session_start();
+                        $row = $result->fetch_assoc();
+                        $_SESSION['nome'] = $row['nome'];
                         $_SESSION['login'] = $login;
+                
                         header("Location: sucesso.php");
                         exit();
                     } else {

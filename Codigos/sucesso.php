@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,18 +23,8 @@
             </div>
             <div id="formulario">
                 <h1>tudo certo</h1>
-                <p>
-                <?php
-                session_start();
-
-                if (!isset($_SESSION['login'])) {
-                    header("Location: login.php");
-                    exit();
-                }
-
-                echo "Bem-vindo, " . $_SESSION['login'];
-                ?>
-                </p>
+                <p>Bem-vindo, <?php echo $_SESSION['nome']; ?> !!!</p>
+                <p></p>
                 <p>
                     <form method="get" action="login.php">
                         <input type="submit" value="Fazer Login">
