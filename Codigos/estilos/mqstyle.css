@@ -6,15 +6,29 @@
         width: 100vw;
     }
 
-    section {
-        width: 50vw;
-        height: 50vh;
-        background-color: rgba(240, 248, 255, 0.616);
-        margin: auto;
+    section#principal {
         position: absolute;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    left: 50%;
+    overflow: auto;
+
+    background-color: white;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 2px;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+    transition-timing-function: ease;
 
     }
+
+    section#principal > div#imagem {
+        float: right;
+        width: 50%;
+        height: 100%;
+        
+    }
 }
+
