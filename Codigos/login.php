@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telepath Login</title>
+    <title>GlassBoard Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 <body>
@@ -13,7 +13,7 @@
 
             </div>
             <div id="formulario">
-                <h1>Telepath Login</h1>
+                <h1>GlassBoard Login</h1>
                 <p>
                 <?php 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
