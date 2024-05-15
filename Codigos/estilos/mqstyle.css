@@ -1,4 +1,63 @@
 
+@media screen and (min-width: 480px) and (min-height: 144px) {
+    body, html {
+        background-color: #87939b;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    div#menu {
+        float: left;
+        width: 50%;
+        padding: 20px;
+    }
+
+    input[type="submit"].lp {
+    
+        width: 100%;
+        height: 8vh;
+        background-color: #4caf4f00; 
+        color: white; 
+        
+        border: 1px black;
+        cursor: pointer;
+        
+        margin-top: 30px;
+        font-size: 1.5em;
+        
+    }
+    
+    input[type="submit"].lp:hover {
+        background-color: #5e5e5e;
+    }
+
+    h1#logo {
+        display: block;
+        text-align: center;
+        
+        font-size: 4em;
+        color: rgba(248, 248, 248, 0.582); /* Texto transparente */
+        position: absolute;
+        top: 10%;
+        left: 10%;
+    
+    }
+
+    section#principal {
+        height: 50vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    section#principal > div#imagem {
+        float: right;
+        width: 50%;
+        height: 100%;
+        
+    }
+}
+
 @media screen and (min-width: 1024px) and (min-height: 768px) {
     body, html {
         background-color: #87939b;
