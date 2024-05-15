@@ -6,12 +6,40 @@
         width: 100vw;
     }
 
+    div#menu {
+        float: left;
+        width: 50%;
+        padding: 20px;
+    }
+
+    input[type="submit"].lp {
+    
+        width: 100%;
+        height: 8vh;
+        background-color: #4caf4f00; 
+        color: white; 
+        
+        border: 1px black;
+        cursor: pointer;
+        
+        margin-top: 30px;
+        font-size: 1.5em;
+        
+    }
+    
+    input[type="submit"].lp:hover {
+        background-color: #5e5e5e;
+    }
+
     h1#logo {
         display: block;
         text-align: center;
-        padding-top: 150px;
+        
         font-size: 4em;
         color: rgba(248, 248, 248, 0.582); /* Texto transparente */
+        position: absolute;
+        top: 10%;
+        left: 10%;
     
     }
 

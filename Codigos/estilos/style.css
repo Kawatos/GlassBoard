@@ -8,11 +8,26 @@
 
 }
 
+input[type="submit"].lp {
+    
+    width: 100%;
+    height: 40px;
+    background-color: #4caf4f00; 
+    color: white; 
+    padding: 10px 20px; 
+    border: 1px black;
+    cursor: pointer;
+}
+
+input[type="submit"].lp:hover {
+    background-color: #5e5e5e;
+}
+
 body, html {
     background-color: #87939b;
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient();
+    background-image: linear-gradient(to top, #2e3a41, #87939b);
 }
 
 h1#logo {
@@ -25,7 +40,7 @@ section#principal {
     left: 50%;
     overflow: auto;
 
-    background-color: rgba(255, 255, 255, 0.692);
+    background-color: rgba(255, 255, 255, 0.356);
     width: 80vw;
     height: 95vh;
     overflow: hidden;
@@ -35,8 +50,14 @@ section#principal {
     transition-timing-function: ease;
 }
 
+
+
 section > div#menu > h1 {
     padding: 50px;
+    text-align: center;
+}
+
+section > div#menu > p > form > input {
     text-align: center;
 }
 
