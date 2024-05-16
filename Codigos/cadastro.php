@@ -71,12 +71,11 @@
                         <input type="password" name="primeirasenha" id="iprimeirasenha" placeholder="Sua senha" autocomplete="current-password" required minlength="8" maxlength="30">
                         <label for="iprimeirasenha">Crie uma senha</label>
                     </div>
-                    <input type="submit" value="Cadastrar-se">
+                    <input type="submit" value="Cadastrar-se" id="cadb">
                 </form>
-
-                    <form method="get" action="index.html">
-                        <input type="submit" value="Voltar">
-                    </form>
+                <form method="get" action="index.html">
+                    <input type="submit" value="Voltar">
+                </form>
             </div>
         </section>
     </main>
