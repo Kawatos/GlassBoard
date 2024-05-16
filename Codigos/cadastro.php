@@ -75,17 +75,12 @@
                         <input type="submit" value="Cadastrar-se" id="cadb">
                     </div>
                     <div class="botao-container">
-                    <form method="get" action="index.html" novalidade>
-                            <input type="submit" value="Voltar" id="ivoltar">
-                    </form>
+                    
                 </div>
                 </form>
-                <div class="botao-container">
-                    <form method="get" action="index.html">
-                            <input type="submit" value="Voltar" id="ivoltar">
-                    </form>
-                </div>
                 
+                <input type="button" value="Voltar" id="ivoltar">
+                    
                 
             </div>
         </section>
