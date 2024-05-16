@@ -1,7 +1,102 @@
+:root {
+    --preto: #000000;
+    --branco: #ffffff;
+    --cinzaclaro1: #87939b;
+    --cinzaescuro1: #2e3a41;
+    --cinzatransparente1: rgba(255, 255, 255, 0.356);
+    --marrom1: rgb(77, 75, 75);
+    --transparente1: #4caf4f00;
+    --cinzalogo: rgba(248, 248, 248, 0.582);
+  }
 
-@media screen and (min-width: 480px) and (min-height: 144px) {
+  
+
+  @media screen and (min-width: 1000px) and (min-height: 700px) {
+    input[type="submit"].lp {
+        width: 100%;
+        height: 8vh;
+        background-color: var(--transparente1); 
+        color: var(--branco); 
+        border: 1px black;
+        cursor: pointer;
+        font-size: 1.3em;
+    }
+    
+    input[type="submit"].lp:hover {
+        background-color: var(--cinzaescuro1);
+    }
+    
     body, html {
-        background-color: #87939b;
+        height: 100vh;
+        width: 100vw;
+        background-image: linear-gradient(to top, var(--cinzaescuro1), var(--cinzaclaro1));
+    }
+    
+    h1#logo {
+        display: block;
+        text-align: center;
+        font-size: 3em;
+        color: var(--cinzalogo); /* Texto transparente */
+        position: absolute;
+        top: 3%;
+        left: 10%;
+    }
+    
+    section#principal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        overflow: auto;
+        background-color: var(--cinzatransparente1);
+        width: 80vw;
+        height: 78vh;
+        overflow: hidden;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s;
+        transition-timing-function: ease;
+    }
+    
+    div#menu {
+        padding: 40px;
+        padding-top: 10px;
+    }
+    
+    section > div#menu > h1#mensagemini {
+        padding: 5px;
+        padding-left: 11px;
+    }
+    
+    div#menu > h1#mensagemini {
+        padding: 10px;
+        color: var(--cinzaescuro1);
+        text-align: left;
+    }
+    
+    div#menu > p {
+        padding: 10px;
+        font-size: 0.9em;
+        text-indent: 10px;
+        color: var(--cinzaescuro1);
+        font-weight: normal;
+    } 
+    
+    div#menu > p#sintase {
+        text-indent: 10px;
+    
+    }
+    
+    
+    section#principal > div#imagem {
+        display: block;
+        background: url(imagens/pexels-scott-webb-532568.jpg) no-repeat;
+        background-size: cover;
+        background-position: right bottom;
+        height: 200px;
+    }
+  }
+
+  @media screen and (min-width: 1400px) and (min-height: 750px) {
+    body, html {
         height: 100vh;
         width: 100vw;
     }
@@ -12,33 +107,121 @@
         padding: 20px;
     }
 
+    div#menu > h1#mensagemini {
+        padding: 5px;
+        padding-left: 10px;
+        color: var(--cinzaescuro1);
+        text-align: left;
+    }
+
+    div#menu > p {
+        padding-top: 10px;
+        font-size: 1em;
+        text-indent: 10px;
+        color: var(--cinzaescuro1);
+        font-weight: normal;
+    } 
+    
+
     input[type="submit"].lp {
     
         width: 100%;
         height: 8vh;
-        background-color: #4caf4f00; 
-        color: white; 
+        background-color: var(--transparente1); 
+        color: var(--branco); 
         
         border: 1px black;
         cursor: pointer;
         
-        margin-top: 30px;
-        font-size: 1.5em;
+        margin-top: 15px;
+        font-size: 1.3em;
         
     }
     
     input[type="submit"].lp:hover {
-        background-color: #5e5e5e;
+        background-color: var(--cinzaescuro1);
     }
 
     h1#logo {
         display: block;
         text-align: center;
-        
         font-size: 4em;
-        color: rgba(248, 248, 248, 0.582); /* Texto transparente */
+        color: var(--cinzalogo); /* Texto transparente */
         position: absolute;
-        top: 10%;
+        top: 8%;
+        left: 10%;
+    
+    }
+
+    section#principal {
+        height: 60vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    section#principal > div#imagem {
+        float: right;
+        width: 50%;
+        height: 100%;
+        
+    }
+}
+
+@media screen and (min-width: 1600px) and (min-height: 900px) {
+    body, html {
+        
+        height: 100vh;
+        width: 100vw;
+    }
+
+    div#menu {
+        float: left;
+        width: 50%;
+        padding: 20px;
+    }
+
+    div#menu > h1#mensagemini {
+        padding: 5px;
+        color: var(--cinzaescuro1);
+        text-align: left;
+    }
+
+    div#menu > p {
+        padding-top: 10px;
+        font-size: 1.1em;
+        text-indent: 10px;
+        color: var(--cinzaescuro1);
+        font-weight: normal;
+    } 
+    
+
+    input[type="submit"].lp {
+    
+        width: 100%;
+        height: 8vh;
+        background-color: var(--transparente1); 
+        color: var(--branco); 
+        
+        border: 1px black;
+        cursor: pointer;
+        
+        margin-top: 20px;
+        font-size: 1.5em;
+        
+    }
+    
+    input[type="submit"].lp:hover {
+        background-color: var(--cinzaescuro1);
+    }
+
+    h1#logo {
+        display: block;
+        text-align: center;
+        font-size: 4em;
+        color: var(--cinzalogo);
+        position: absolute;
+        top: 15%;
         left: 10%;
     
     }
@@ -58,9 +241,9 @@
     }
 }
 
-@media screen and (min-width: 1024px) and (min-height: 768px) {
+@media screen and (min-width: 1900px) and (min-height: 900px) {
     body, html {
-        background-color: #87939b;
+        
         height: 100vh;
         width: 100vw;
     }
@@ -71,33 +254,47 @@
         padding: 20px;
     }
 
+    div#menu > h1#mensagemini {
+        padding: 5px;
+        color: var(--cinzaescuro1);
+        text-align: left;
+    }
+
+    div#menu > p {
+        padding-top: 10px;
+        font-size: 1.1em;
+        text-indent: 10px;
+        color: var(--cinzaescuro1);
+        font-weight: normal;
+    } 
+    
+
     input[type="submit"].lp {
     
         width: 100%;
         height: 8vh;
-        background-color: #4caf4f00; 
-        color: white; 
+        background-color: var(--transparente1); 
+        color: var(--branco); 
         
         border: 1px black;
         cursor: pointer;
         
-        margin-top: 30px;
+        margin-top: 20px;
         font-size: 1.5em;
         
     }
     
     input[type="submit"].lp:hover {
-        background-color: #5e5e5e;
+        background-color: var(--cinzaescuro1);
     }
 
     h1#logo {
         display: block;
         text-align: center;
-        
         font-size: 4em;
-        color: rgba(248, 248, 248, 0.582); /* Texto transparente */
+        color: var(--cinzalogo);
         position: absolute;
-        top: 10%;
+        top: 15%;
         left: 10%;
     
     }
@@ -116,4 +313,3 @@
         
     }
 }
-
