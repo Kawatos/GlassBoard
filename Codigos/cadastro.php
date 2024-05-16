@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registre-se no GlassBoard</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="estilos/cadastresephp/style.css">
+    <link rel="stylesheet" href="estilos/cadastresephp/mqstyle.css">
 </head>
 <body>
     <main>
-        <section>
+        <h1 id="logo">GlassBoard</h1>
+        <section id="principal">
             <div id="imagem">
 
             </div>
-            <div id="formulario">
+            <div id="menu">
                 <h1>Aqui você coloca os dados</h1>
                 <p>
                 <?php
@@ -52,7 +55,6 @@
                 ?>
 
                 </p>
-                <p>
                 <form action="cadastro.php" method="post">
                 <div class="campo">
                         <span class="material-symbols-outlined">person</span>
@@ -75,9 +77,6 @@
                     <form method="get" action="index.html">
                         <input type="submit" value="Voltar">
                     </form>
-                </p>
-                
-                
             </div>
         </section>
     </main>
