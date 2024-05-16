@@ -7,6 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/cadastresephp/style.css">
     <link rel="stylesheet" href="estilos/cadastresephp/mqstyle.css">
+    <script>
+        function voltarf() {
+            window.location.href = "index.html"
+        }
+    </script>
 </head>
 <body>
     <main>
@@ -56,7 +61,7 @@
 
                 </p>
                 <form action="cadastro.php" method="post">
-                <div class="campo">
+                    <div class="campo">
                         <span class="material-symbols-outlined">person</span>
                         <input type="text" name="primeironome" id="iprimeirologin" placeholder="Seu nome" autocomplete="name" required maxlength="30">
                         <label for="inovologin">Insira aqui o nome</label>
@@ -72,14 +77,10 @@
                         <label for="iprimeirasenha">Crie uma senha</label>
                     </div>
                     <div class="botao-container">
+                        <input type="button" value="Voltar" id="ivoltar" onclick="voltarf()">
                         <input type="submit" value="Cadastrar-se" id="cadb">
                     </div>
-                    <div class="botao-container">
-                    
-                </div>
                 </form>
-                
-                <input type="button" value="Voltar" id="ivoltar" a>
             </div>
         </section>
     </main>
