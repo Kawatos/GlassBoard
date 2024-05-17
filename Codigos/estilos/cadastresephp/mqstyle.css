@@ -57,8 +57,9 @@
     }
     
     div#menu {
-        padding: 40px;
         padding-top: 10px;
+        padding-left: 120px;
+        padding-right: 120px;
     }
     
     section > div#menu > h1#mensagemini {

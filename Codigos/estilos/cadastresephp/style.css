@@ -92,6 +92,8 @@ section#principal {
 
 div#menu {
     padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 section > div#menu > h1 {
