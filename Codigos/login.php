@@ -1,3 +1,46 @@
+<?php
+ob_start();
+session_start();
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $servername = "localhost";
+    $username = "id22176838_kawatos";
+    $password = "TCRCt000#";
+    $dbname = "id22176838_glassboard";
+
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+  
+    if ($conn->connect_error) {
+        die("Falha na conexão: " . $conn->connect_error);
+    }
+
+    $login = mysqli_real_escape_string($conn, $_POST["login"]);
+    $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
+
+    
+    $sql = "SELECT * FROM usuarios WHERE email='$login' AND senha='$senha'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION['nome'] = $row['nome'];
+        $_SESSION['login'] = $login;
+        header("Location: sucesso.php");
+        exit();
+    } else {
+        echo "Usuário ou senha inválidos.";
+    }
+
+    $conn->close();
+}
+
+
+ob_end_flush();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,45 +53,12 @@
     <main>
         <section>
             <div id="imagem">
-
             </div>
             <div id="formulario">
                 <h1>GlassBoard Login</h1>
                 <p>
-                <?php 
-                session_start();
-
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "glassboard";
+                <?php
                 
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                
-                    if ($conn->connect_error) {
-                        die("Falha na conexão: " . $conn->connect_error);
-                    }
-                
-                    $login = mysqli_real_escape_string($conn, $_POST["login"]);
-                    $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
-                
-                    $sql = "SELECT * FROM usuarios WHERE email='$login' AND senha='$senha'";
-                    $result = $conn->query($sql);
-                
-                    if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        $_SESSION['nome'] = $row['nome'];
-                        $_SESSION['login'] = $login;
-                
-                        header("Location: sucesso.php");
-                        exit();
-                    } else {
-                        echo "Usuário ou senha inválidos.";
-                    }
-                
-                    $conn->close();
-                }
                 ?>
                 </p>
                 <form action="login.php" method="post">
@@ -65,14 +75,13 @@
                     <input type="submit" value="Entrar">
                     <a href="esqueci.php" class="botao">Esqueci a senha<span id="spn" class="material-symbols-outlined">email</span></a>
                 </form>
-                
+
                 <form method="get" action="index.html">
                     <input type="submit" value="Voltar">
                 </form>
-                
+
             </div>
         </section>
     </main>
-    
 </body>
 </html>

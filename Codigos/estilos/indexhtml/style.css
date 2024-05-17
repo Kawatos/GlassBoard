@@ -5,11 +5,11 @@
     --branco: #ffffff;
     --cinzaclaro1: #87939b;
     --cinzaescuro1: #2e3a41;
-    --cinzatransparente1: rgba(255, 255, 255, 0.356);
+    --cinzatransparente1: rgba(255, 255, 255,F 0.356);
     --marrom1: rgb(92, 64, 64);
     --transparente1: #4caf4f00;
     --cinzalogo: rgba(248, 248, 248, 0.582);
-  }
+}
   
 
 * {
@@ -18,21 +18,6 @@
     margin: 0px;
     box-sizing: border-box;
 
-}
-
-input[type="submit"].lp {
-    width: 100%;
-    height: 8vh;
-    background-color: var(--transparente1); 
-    color: var(--branco); 
-    
-    border: 1px black;
-    cursor: pointer;
-    font-size: 1.3em;
-}
-
-input[type="submit"].lp:hover {
-    background-color: var(--cinzaescuro1);
 }
 
 body, html {
@@ -45,7 +30,7 @@ h1#logo {
     display: block;
     text-align: center;
     font-size: 3em;
-    color: var(--cinzalogo); /* Texto transparente */
+    color: var(--cinzalogo);
     position: absolute;
     top: 3%;
     left: 10%;
@@ -65,11 +50,19 @@ section#principal {
     transition-timing-function: ease;
 }
 
+section#principal > div#imagem {
+    display: block;
+    background: url(imagens/pexels-scott-webb-532568.jpg) no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+    height: 180px;
+}
+
 div#menu {
     padding: 10px;
 }
 
-section > div#menu > h1 {
+div#menu > h1 {
     padding: 5px;
 }
 
@@ -81,7 +74,6 @@ div#menu > h1#mensagemini {
 
 div#menu > p {
     padding: 10px;
-
     font-size: 0.9em;
     text-indent: 10px;
     color: var(--cinzaescuro1);
@@ -90,14 +82,22 @@ div#menu > p {
 
 div#menu > p#sintase {
     text-indent: 10px;
-
 }
 
+div.botao-container {
+    padding-top: 3vh;
+}
 
-section#principal > div#imagem {
-    display: block;
-    background: url(imagens/pexels-scott-webb-532568.jpg) no-repeat;
-    background-size: cover;
-    background-position: right top;
-    height: 180px;
+input[type="submit"].lp {
+    width: 100%;
+    height: 8vh;
+    background-color: var(--transparente1); 
+    color: var(--branco); 
+    border: 1px black;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+input[type="submit"].lp:hover {
+    background-color: var(--cinzaescuro1);
 }
