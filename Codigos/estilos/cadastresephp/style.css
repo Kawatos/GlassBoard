@@ -20,13 +20,12 @@
 
 }
 
-.botao-container {
-    display: flex;
-}
 
 .botao-container {
+    display: flex;
     padding-left: 100px;
     padding-right: 100px;
+    padding-top: 7vh;
 }
 
 input[type="submit"]#cadb {
@@ -129,7 +128,7 @@ section#principal > div#imagem {
     display: block;
     background: url(imagens/pexels-scott-webb-532568.jpg) no-repeat;
     background-size: cover;
-    background-position: right top;
+    background-position: right bottom;
     height: 180px;
 }
 
