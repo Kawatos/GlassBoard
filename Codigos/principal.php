@@ -30,23 +30,82 @@ if (!isset($_SESSION['login'])) {
                         <a href="#">Link 3</a>
                         <a href="#">Link 4</a>
                         <div class="navmenu-usuario">
-                            <a href="#"><?php echo $_SESSION['nome']; ?></a>
+                            <a href="#"><?php echo $_SESSION['nome']; ?><span class="material-symbols-outlined">person</span></a>
+                            <a href="index.html">Sair<span class="material-symbols-outlined">logout</span></a>
                         </div>
                     </div>
-                    
                 </nav>
             </header>
             <div class="conteudo" id="iconteudo">
-                <h1>tudo certo</h1>
-                <p>Bem-vindo, <?php echo $_SESSION['nome']; ?> !!!</p>
-
-                <div class="opcoes-do-menu-grandes">
-                    <h2>Nome do Site</h2>
-
+                
+                <div class="conteudo-informacional">
+                     <h1>Sites</h1>
                 </div>
+                
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 1</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 2</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 3</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 4</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 1</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 2</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 3</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 4</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 1</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 2</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 3</h2>
+                    </div>
+                </div>
+                <div class="teste">
+                    <div class="conteudo-opcoes">
+                        <h2>Nome do Site 4</h2>
+                    </div>
+                </div>
+                
             </div>
             <footer>
-
+            
             </footer>
         </section>
     </main>
