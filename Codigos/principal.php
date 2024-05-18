@@ -14,12 +14,12 @@ if (!isset($_SESSION['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sucesso</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="estilos/indexhtml/style2.css">
+    <link rel="stylesheet" href="estilos/indexhtml/styleprincipal.css">
 </head>
 <body>
     <main>
         <section class="principal-menu" id="iprincipal-menu">
-            <header class="header">
+            <header class="headermenu">
                 <nav class="navmenu" id="inavamenu">
                     <div class="logo">
                         <h1 id="navlogo">GlassBoard</h1>

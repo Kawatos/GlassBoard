@@ -25,11 +25,35 @@ body, html {
     background-image: linear-gradient(to top, var(--cinzaescuro1), var(--cinzaclaro1));
 }
 
-.header {
+.headermenu {
     background-color: white; /* Altera a cor de fundo para branco */
     width: 100%; /* Define a largura para 100% */
 }
 
+nav.navmenu {
+    display: flex;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    
+}
 
+div.navmenu-opcoes {
+    margin: 0.8vh;
+    
+}
 
+div.navmenu-usuario {
+    display: inline-block;
+    position: absolute;
+    right: 2%;
+    text-align: right;
+    margin-right: auto;
+}
 
+.logo {
+    display: inline-block;
+    margin: 0.8vh;
+
+}
