@@ -48,20 +48,22 @@ ob_end_flush();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlassBoard Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="estilos/indexhtml/style2.css">
 </head>
 <body>
     <main>
-        <section>
+        <section id="principal">
             <div id="imagem">
+                <h1 id="logo">GlassBoard</h1>
             </div>
-            <div id="formulario">
+            <div id="formulario-menu">
                 <h1>GlassBoard Login</h1>
                 <p>
                 <?php
                 
                 ?>
                 </p>
-                <form action="login.php" method="post">
+                <form action="login.php" method="post" class="lpformulario">
                     <div class="campo">
                         <span class="material-symbols-outlined">mail</span>
                         <input type="email" name="login" id="ilogin" placeholder="Seu e-mail" autocomplete="email" required maxlength="30">
@@ -72,14 +74,12 @@ ob_end_flush();
                         <input type="password" name="senha" id="isenha" placeholder="Sua senha" autocomplete="current-password" required minlength="8" maxlength="30">
                         <label for="isenha">Senha</label>
                     </div>
-                    <input type="submit" value="Entrar">
-                    <a href="esqueci.php" class="botao">Esqueci a senha<span id="spn" class="material-symbols-outlined">email</span></a>
+                    <div class="botao-container">
+                        <a href="index.html" class="lpb1" id="lpbvoltar">Voltar</a>
+                        <input type="submit" value="Entrar" class="lpb2" id="lpbentrar">
+                        <a href="esqueci.php" class="lpb" id="lpbesqueci">Esqueci a senha<span id="spn" class="material-symbols-outlined">email</span></a>
+                    </div>
                 </form>
-
-                <form method="get" action="index.html">
-                    <input type="submit" value="Voltar">
-                </form>
-
             </div>
         </section>
     </main>

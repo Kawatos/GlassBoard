@@ -5,32 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem vindo(a) ao GlassBoard</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="estilos/indexhtml/style.css">
-    <link rel="stylesheet" href="estilos/indexhtml/mqstyle.css">
+    <link rel="stylesheet" href="estilos/indexhtml/style2.css">
     
 </head>
 <body>
     <main>
-        <h1 id="logo">GlassBoard</h1>
         <section id="principal">
             <div id="imagem">
-
+                <h1 id="logo">GlassBoard</h1>
             </div>
-            <div id="menu">
+            <div id="formulario-menu">
                 <h1 id="mensagemini">Seja muito bem-vindo(a) ao GlassBoard!</h1>
-                <p>
+                <p id="lpmsg">
                     O GlassBoard é uma plaforma de Web Design demonstrativa criada por mim, Kauã Mattos,
                     com o objetivo de monstrar um pouco mais sobre meus conhecimentos de Web Design, UX, e habilidades 
                     desenvolvendo usando HTML5, CSS3, JavaScript, PHP e bancos de dados MySQL. 
-                </p>
+                </p id="lpmsg">
                 <p id="sintase">Sinta-se livre para explorar a plataforma e realizar seus testes!</p>
-                <div class="botao-container">
-                    <form method="get" action="login.php">
-                        <input type="submit" value="Fazer Login" class="lp" id="lplogin">
-                    </form>
-                    <form method="get" action="cadastro.php">
-                        <input type="submit" value="Cadastrar-se" class="lp" id="lpcadastre">
-                    </form>
+                <div class="botao-container" id="lp1">
+                    <a href="login.php" class="lpb1" id="lpblogin">Login</a>
+                    <a href="cadastro.php" class="lpb2" id="lpbcadastro">Cadastre-se</a>
                 </div>
             </div>
         </section>
