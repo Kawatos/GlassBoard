@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['login'] = $login;
-        header("Location: sucesso.php");
+        header("Location: principal.php");
         exit();
     } else {
         echo "Usuário ou senha inválidos.";
@@ -54,7 +54,7 @@ ob_end_flush();
     <title>GlassBoard Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/style.css">
-    <link rel="stylesheet" href="estilos/indexhtml/mqstyle2.css">
+    <link rel="stylesheet" href="estilos/indexhtml/mqstyle.css">
 </head>
 <body>
     <main>
