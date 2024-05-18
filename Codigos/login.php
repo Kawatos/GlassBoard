@@ -63,13 +63,14 @@ ob_end_flush();
                 <h1 id="logo">GlassBoard</h1>
             </div>
             <div id="formulario-menu">
-                <h1>Login</h1>
+                
                 <p>
                 <?php
                 
                 ?>
                 </p>
                 <form action="login.php" method="post" class="lpformulario">
+                    <h1>Login</h1> <br>
                     <div class="campo">
                         <span class="material-symbols-outlined">mail</span>
                         <input type="email" name="login" id="ilogin" placeholder="Seu e-mail" autocomplete="email" required maxlength="30">

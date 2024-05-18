@@ -12,6 +12,7 @@
 }
 
 @media screen and (min-width: 1200px) and (min-height: 650px) {
+    
 
     section#principal {
         position: absolute;
@@ -40,7 +41,8 @@
     h1#logo {
         position: absolute;
         text-align: center;
-        left: 52%;
+        left: 49%;
+        top: 0%;
         font-size: 2em;
         color: var(--cinzaescuro1);
     }
@@ -50,7 +52,7 @@
         top: 0%;
         width: 50%;
         height: 100%;
-        background-color: var(--cinzatransparente2);
+        background: linear-gradient(to right, var(--cinzatransparente2) 94%, rgba(135, 147, 155, 0) 100%);
         z-index: 1;
         padding: 30px;
     }
@@ -160,6 +162,10 @@
 
 @media screen and (min-width: 1800px) and (min-height: 800px) {
 
+    main > div {
+        display: none;
+    }
+
     section#principal {
         position: absolute;
         top: 50%;
@@ -187,7 +193,8 @@
     h1#logo {
         position: absolute;
         text-align: center;
-        left: 52%;
+        left: 49%;
+        top: 0%;
         font-size: 2em;
         color: var(--cinzaescuro1);
     }
@@ -197,7 +204,7 @@
         top: 0%;
         width: 50%;
         height: 100%;
-        background-color: var(--cinzatransparente2);
+        background: linear-gradient(to right, var(--cinzatransparente2) 94%, rgba(135, 147, 155, 0) 100%);
         z-index: 1;
         padding: 30px;
     }
