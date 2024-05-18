@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registre-se no GlassBoard</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="estilos/indexhtml/style2.css">
+    <link rel="stylesheet" href="estilos/indexhtml/style.css">
+    <link rel="stylesheet" href="estilos/indexhtml/mqstyle2.css">
     
 </head>
 <body>
@@ -25,6 +26,11 @@
                     $username = "root";
                     $password = "";
                     $dbname = "glassboard";
+
+                    /* $servername = "localhost";
+                    $username = "id22176838_kawatos";
+                    $password = "TCRCt000#";
+                    $dbname = "id22176838_glassboard"; */
 
                     $conn = new mysqli($servername, $username, $password, $dbname);
 

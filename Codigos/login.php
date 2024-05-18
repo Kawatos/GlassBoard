@@ -9,6 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = "";
     $dbname = "glassboard";
 
+    /* $servername = "localhost";
+    $username = "id22176838_kawatos";
+    $password = "TCRCt000#";
+    $dbname = "id22176838_glassboard"; */
+
     
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -48,7 +53,8 @@ ob_end_flush();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlassBoard Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="estilos/indexhtml/style2.css">
+    <link rel="stylesheet" href="estilos/indexhtml/style.css">
+    <link rel="stylesheet" href="estilos/indexhtml/mqstyle2.css">
 </head>
 <body>
     <main>
@@ -57,7 +63,7 @@ ob_end_flush();
                 <h1 id="logo">GlassBoard</h1>
             </div>
             <div id="formulario-menu">
-                <h1>GlassBoard Login</h1>
+                <h1>Login</h1>
                 <p>
                 <?php
                 
