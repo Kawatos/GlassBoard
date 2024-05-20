@@ -120,17 +120,17 @@ div.navmenu-usuario > a > span {
 }
 
 .conteudo {
-    position: static;
     margin: auto;
+    margin-bottom: -1vh;
     width: 60%;
-    height: 100vh;
+    height: 93vh;
     padding: 3vw;
-    padding-bottom: 12vh;
+    padding-bottom: ;
     background-color: var(--cinzaescuro1);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
     background-size: cover;
-    background-attachment: fixed;
-    overflow: auto;
+    background-attachment: ;
+    overflow: scroll;
 }
 
 .conteudo-opcoes {
