@@ -96,7 +96,6 @@ div.navmenu-usuario > a, span {
     text-decoration: none;
     color: var(--branco);
     text-align: right;
-    margin-left: ;
 }
 
 div.navmenu-usuario > a {
@@ -121,16 +120,14 @@ div.navmenu-usuario > a > span {
 
 .conteudo {
     margin: auto;
-    margin-bottom: -1vh;
+    margin-bottom: 1vh;
     width: 60%;
-    height: 93vh;
     padding: 3vw;
-    padding-bottom: ;
+    height: calc(100vh - 5.8vh);
     background-color: var(--cinzaescuro1);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
     background-size: cover;
-    background-attachment: ;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .conteudo-opcoes {
