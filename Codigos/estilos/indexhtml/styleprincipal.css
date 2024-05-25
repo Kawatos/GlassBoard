@@ -4,6 +4,7 @@
     --preto: #000000;
     --branco: #ffffff;
     --cinzaclaro1: #87939b;
+    --cinzaclaro2: #cdd5da;
     --cinzaescuro1: #2e3a41;
     --cinzaescuro2: #1A1F24;
     --cinzatransparente1: rgba(255, 255, 255, 0.356);
@@ -12,6 +13,7 @@
     --marrom1: rgb(92, 64, 64);
     --transparente1: #4caf4f00;
     --cinzalogo: rgba(248, 248, 248, 0.582);
+
 }
 
 * {
@@ -145,10 +147,62 @@ div.navmenu-usuario > a > span {
     width: 45%;
     height: 25vh;
     padding: 1vw;
-    background-color: var(--cinzaclaro1);
+    background-color: var(--cinzaclaro2);
     margin: 1vw;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
 }
+
+.conteudo-opcoes-direito {
+    display: inline-block;
+    width: 45%;
+    max-height: 50%;
+    min-height: 10vh;
+    color: var(--cinzaclaro2);
+    margin: 1vw;
+    margin-right: 2vw;
+    margin-left: 0,5vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    padding: 0.5vw;
+}
+
+.conteudo-opcoes-novosite {
+    display: inline-block;
+    width: 45%;
+    max-height: 10vh;
+    min-height: 10vh;
+    background-color: var(--cinzaclaro2);
+    margin: 1vw;
+    margin-right: 0,5vw;
+    margin-left: 2vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.conteudo-opcoes-novosite:hover {
+    background-color: var(--transparente1);
+    color: var(--cinzaclaro2);
+    cursor: pointer;
+}
+
+.conteudo-opcoes-novosite > h2 {
+    
+    padding-top: 3vh;
+    margin: auto;
+}
+
+.conteudo-opcoes-novosite-direito {
+    display: inline-block;
+    width: 45%;
+    max-height: 50%;
+    min-height: 10vh;
+    color: var(--cinzaclaro2);
+    margin: 1vw;
+    margin-right: 2vw;
+    margin-left: 0,5vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    padding: 0.5vw;
+}
+
 
 .conteudo-informacional {
     color: var(--branco);
@@ -174,7 +228,8 @@ div.navmenu-usuario > a > span {
     padding: 1vw;
 }
 
-.teste {
+.conteudo-fundo {
+    display: flex;
     padding: 0.3vw;
     background-color: var(--cinzaescuro2);
     margin-top: 3%;
