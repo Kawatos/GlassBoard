@@ -51,15 +51,19 @@ main {
 }
 
 .headermenu {
-    
+    display: flex;
     width: 100%;
     color: var(--branco);
+    min-height: 4.5vh;
+    max-height: 4.5vh;
 }
 
 nav.navmenu {
     display: flex;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    width: 100%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    max-height: 4.5vh;
     padding-left: 2vw;
     padding-right: 2vw;
     background-color: var(--cinzaescuro2);
@@ -70,13 +74,13 @@ nav.navmenu {
 }
 
 div.navmenu-opcoes {
-    margin: 0.8vh;
+    
     
 }
 
 div.navmenu-opcoes > a {
     height: 100%;
-    padding: 1vh;
+    
     padding-left: 2vw;
     padding-right: 2vw;
     margin-left: 1vw;
@@ -112,7 +116,7 @@ div.navmenu-usuario > a > span {
 
 .logo {
     display: inline-block;
-    margin: 0.8vh;
+    
     padding-left: 1vw;
     padding-right: 2vw;
 
@@ -123,7 +127,7 @@ div.navmenu-usuario > a > span {
     margin-bottom: 1vh;
     width: 60%;
     padding: 3vw;
-    height: calc(100vh - 5.8vh);
+    height: calc(100vh - 4.5vh);
     background-color: var(--cinzaescuro1);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
     background-size: cover;
