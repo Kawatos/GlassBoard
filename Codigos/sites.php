@@ -12,7 +12,7 @@ if (!isset($_SESSION['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sucesso</title>
+    <title>GlassBoard Sites</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/styleprincipal.css">
 </head>
@@ -26,12 +26,12 @@ if (!isset($_SESSION['login'])) {
                     </div>
                     <div class="navmenu-opcoes">
                         <a href="sites.php">Sites</a>
-                        <a href="#">Loja</a>
-                        <a href="#">Ajuda</a>
-                        <a href="#">Deixe aqui o seu feedback!</a>
+                        <a href="loja.php">Loja</a>
+                        <a href="ajuda.php">Ajuda</a>
+                        <a href="feedback.php">Deixe aqui o seu feedback!</a>
                         <div class="navmenu-usuario">
-                            <a href="#"><?php echo $_SESSION['nome']; ?><span class="material-symbols-outlined">person</span></a>
-                            <a href="index.html">Sair<span class="material-symbols-outlined">logout</span></a>
+                            <a href="perfil.php"><?php echo $_SESSION['nome']; ?><span class="material-symbols-outlined">person</span></a>
+                            <a href="logout.php">Sair<span class="material-symbols-outlined">logout</span></a>
                         </div>
                     </div>
                 </nav>
