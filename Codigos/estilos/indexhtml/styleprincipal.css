@@ -73,10 +73,17 @@ nav.navmenu {
     
 }
 
-div.navmenu-opcoes {
-    
+div.navmenu-opcoes > a:hover {
+    color: var(--cinzaclaro1);
     
 }
+
+div.navmenu-opcoes > div > a:hover, span:hover {
+    color: var(--cinzaclaro1);
+    
+}
+
+
 
 div.navmenu-opcoes > a {
     height: 100%;

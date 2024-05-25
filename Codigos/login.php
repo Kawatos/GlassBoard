@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['login'] = $login;
-        header("Location: principal.php");
+        header("Location: sites.php");
         exit();
     } else {
         echo "Usuário ou senha inválidos.";

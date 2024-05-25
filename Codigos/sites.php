@@ -25,10 +25,10 @@ if (!isset($_SESSION['login'])) {
                         <h1 id="navlogo">GlassBoard</h1>
                     </div>
                     <div class="navmenu-opcoes">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                        <a href="#">Link 4</a>
+                        <a href="#">Sites</a>
+                        <a href="#">Loja</a>
+                        <a href="#">Ajuda</a>
+                        <a href="#">Deixe aqui o seu feedback!</a>
                         <div class="navmenu-usuario">
                             <a href="#"><?php echo $_SESSION['nome']; ?><span class="material-symbols-outlined">person</span></a>
                             <a href="index.html">Sair<span class="material-symbols-outlined">logout</span></a>
