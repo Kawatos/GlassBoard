@@ -15,6 +15,7 @@ if (!isset($_SESSION['login'])) {
     <title>GlassBoard Sites</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/styleprincipal.css">
+    <link rel="stylesheet" href="estilos/indexhtml/mqstyleprincipal.css">
 </head>
 <body>
     <main>
@@ -44,8 +45,8 @@ if (!isset($_SESSION['login'])) {
                 
                 <div class="conteudo-fundo">
                     <a href="criarsite.php" class="conteudo-opcoes-novosite">
-                        <div>
-                            <h2>Novo Site</h2>
+                        <div class="conteudo-opcoes-novosite-div">
+                            <h2 id="conteudo-opcoes-novosite-botao">Novo Site</h2>
                         </div>
                     </a>
                     <div class="conteudo-opcoes-novosite-direito">

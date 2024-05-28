@@ -15,6 +15,7 @@ if (!isset($_SESSION['login'])) {
     <title>GlassBoard Perfil</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/styleprincipal.css">
+    <link rel="stylesheet" href="estilos/indexhtml/mqstyleprincipal.css">
 </head>
 <body>
     <main>

@@ -1,0 +1,52 @@
+/* @charset "UTF-8";
+
+:root {
+    --preto: #000000;
+    --branco: #ffffff;
+    --cinzaclaro1: #87939b;
+    --cinzaclaro2: #cdd5da;
+    --cinzaescuro1: #2e3a41;
+    --cinzaescuro2: #1A1F24;
+    --cinzatransparente1: rgba(255, 255, 255, 0.356);
+    --cinzatransparente2: #f6f7f9b7;
+    --cinzatransparente3: #2e3a41c0;
+    --marrom1: rgb(92, 64, 64);
+    --transparente1: #4caf4f00;
+    --cinzalogo: rgba(248, 248, 248, 0.582);
+
+}
+
+@media screen and (min-width: 1000px) and (min-height: 650px) {
+    
+    .headermenu {
+        min-height: 6vh;
+        max-height: 5vh;
+    }
+
+    nav.navmenu {
+        max-height: 6vh;
+    }
+    .conteudo-informacional > h1 {
+        font-size: 1.2em;
+    }
+    .conteudo-opcoes-novosite {
+        max-height: 12vh;
+        min-height: 10vh;
+    }
+    #conteudo-opcoes-novosite-botao {
+        font-size: 1.2em;
+        padding-top: 0vh;
+    }
+    .conteudo-opcoes-novosite-direito > p {
+        font-size: 0.8em;
+    }
+
+    .conteudo-fundo > div > h2{
+        font-size: 1.2em;
+    }
+    .conteudo-fundo > div > h3 {
+        font-size: 1em;
+    }
+
+
+} */
