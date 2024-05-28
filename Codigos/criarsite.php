@@ -37,31 +37,41 @@ if (!isset($_SESSION['login'])) {
                     </div>
                 </nav>
             </header>
-            <div class="conteudo" id="iconteudo">
+            <div class="menu-lateral-esquerdo">
+                <div class="menu-lateral-esquerdo-opcoes">
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+
+                </div>
+                
+            </div>
+            <div class="conteudo-editor" id="iconteudo">
                 
                 <div class="conteudo-informacional">
                      <h1>Crie seu site aqui!</h1>
                 </div>
                 
                 <div class="conteudo-fundo">
-                    <a href="criarsite.php" class="conteudo-opcoes-novosite">
-                        <div>
-                            <h2>Exemplo</h2>
-                        </div>
-                    </a>
-                    <div class="conteudo-opcoes-novosite-direito">
+                    
+                    <div class="conteudo-opcoes-criar-site-esquerdo">
                         <p>
-                            Clique no botão ao lado para criar o seu primeiro site! <br>
-                            É realmente muito simples e intuitivo pois utilizamos de modelos pré-projetados!
+                            Clique no botão ao lado para adicionar uma nova pagina ao seu site! <br>
+                            Ou se preferir, basta continuar editando a pagina atual.
                         </p>
                     </div>
+                    <a href="#" class="conteudo-opcoes-criar-site">
+                        <h2>Nova página</h2>
+                    </a>
                 </div>
                 <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 1</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
+                    <div class="conteudo-opcoes" id="ieditar-pagina">
+                        <label for="inomedapagina" class="titulo-de-cabecario-label">Titulo</label> <br>
+                        <input type="text" class="input-titulo-de-cabecario" id="inomedapagina">
+                        
                     </div>
                 </div>
                 <div class="conteudo-fundo">
