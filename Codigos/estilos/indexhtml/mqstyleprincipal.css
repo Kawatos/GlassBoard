@@ -1,4 +1,4 @@
-/* @charset "UTF-8";
+@charset "UTF-8";
 
 :root {
     --preto: #000000;
@@ -16,15 +16,282 @@
 
 }
 
-@media screen and (min-width: 1000px) and (min-height: 650px) {
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--cinzaescuro2); /* cor de fundo da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cinzaescuro1); /* cor do indicador da barra de rolagem */
+}
+
+
+body, html {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to top, var(--cinzaescuro1), var(--cinzaclaro1));
+}
+
+main {
+    height: 100vh;
+    background: url(imagens/pexels-scott-webb-532568.jpg) no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.principal-menu {
+    background-color: var(--cinzatransparente3);
     
+}
+
+.headermenu {
+    display: flex;
+    width: 100%;
+    color: var(--branco);
+    min-height: 4.5vh;
+    max-height: 4.5vh;
+}
+
+nav.navmenu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    max-height: 4.5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    background-color: var(--cinzaescuro2);
+    /* background: url(imagens/pexels-scott-webb-532568.jpg) no-repeat;
+    background-size: cover;
+    background-position: right bottom; */
+    
+}
+
+div.navmenu-opcoes > a:hover {
+    color: var(--cinzaclaro1);
+    
+}
+
+div.navmenu-opcoes > div > a:hover, span:hover {
+    color: var(--cinzaclaro1);
+    
+}
+
+
+
+div.navmenu-opcoes > a {
+    height: 100%;
+    
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    text-decoration: none;
+    color: var(--branco);
+}
+
+div.navmenu-usuario {
+    display: inline-block;
+    position: absolute;
+    right: 3%;
+    text-align: right;
+}
+
+div.navmenu-usuario > a, span {
+    text-decoration: none;
+    color: var(--branco);
+    text-align: right;
+}
+
+div.navmenu-usuario > a {
+    margin-left: 3vw;
+}
+
+
+div.navmenu-usuario > a > span {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    padding-left: 0.3vw;
+}
+
+.logo {
+    display: inline-block;
+    
+    padding-left: 1vw;
+    padding-right: 2vw;
+
+}
+
+.conteudo {
+    margin: auto;
+    margin-bottom: 1vh;
+    width: 60%;
+    padding: 3vw;
+    height: calc(100vh - 4.5vh);
+    background-color: var(--cinzaescuro1);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    overflow: auto;
+}
+
+.conteudo-fundo {
+    display: flex;
+    padding: 0.3vw;
+    background-color: var(--cinzaescuro2);
+    margin-top: 3%;
+}
+
+.conteudo-fundo > a {
+    display: flex;
+    text-decoration: none;
+    color: var(--preto);
+    padding: 0vh;
+    margin-left: 1vw;
+}
+
+.conteudo-opcoes {
+    width: 50%;
+    height: 25vh;
+    padding: 1vw;
+    background-color: var(--cinzaclaro2);
+    margin: 1vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.conteudo-opcoes-direito {
+    
+    display: inline-block;
+    width: 50%;
+    max-height: 50%;
+    min-height: 10vh;
+    color: var(--cinzaclaro2);
+    margin: 1vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    padding: 0.5vw;
+}
+
+.conteudo-opcoes-novosite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    max-height: 10vh;
+    min-height: 10vh;
+    background-color: var(--cinzaclaro2);
+    margin: 1vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: auto;
+    
+}
+
+.conteudo-opcoes-novosite:hover {
+    background-color: var(--transparente1);
+    color: var(--cinzaclaro2);
+    cursor: pointer;
+}
+
+
+.conteudo-opcoes-novosite-direito {
+    display: inline-block;
+    width: 50%;
+    max-height: 50%;
+    min-height: 10vh;
+    color: var(--cinzaclaro2);
+    margin: 1vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    padding: 0.5vw;
+}
+
+
+.conteudo-informacional {
+    color: var(--branco);
+    font-size: 1.5em;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-top: 10vh;
+    margin-top: -10vh;
+    width: 100%;
+    background-color: var(--cinzaescuro2);
+}
+
+.conteudo-informacional-base {
+    padding-top: 15vh;
+    margin-top: -10vh;
+    height: 15vh;
+    background-color: var(--cinzaescuro2);
+    padding: 0.3vw;
+}
+
+.conteudo-informacional2 {
+    background-color: var(--cinzaclaro1);
+    padding: 1vw;
+}
+
+@media screen and (max-width: 950px) and (max-height: 550px) {
     .headermenu {
-        min-height: 6vh;
-        max-height: 5vh;
+        min-height: 3vh;
+        max-height: 3vh;
+        font-size: 0.8em;
     }
 
     nav.navmenu {
         max-height: 6vh;
+    }
+
+    .conteudo {
+        height: calc(100vh - 4vh);
+    }
+    .conteudo-informacional > h1 {
+        font-size: 0.5em;
+    }
+    .conteudo-opcoes-novosite {
+        max-height: 12vh;
+        min-height: 10vh;
+    }
+    #conteudo-opcoes-novosite-botao {
+        font-size: 1.2em;
+        padding-top: 0vh;
+    }
+    .conteudo-opcoes-novosite-direito > p {
+        font-size: 0.8em;
+    }
+
+    .conteudo-fundo > div > h2{
+        font-size: 1.2em;
+    }
+    .conteudo-fundo > div > h3 {
+        font-size: 1em;
+    }
+
+}
+
+
+@media screen and (max-width: 1400px) and (max-height: 800px) {
+    
+    .headermenu {
+        min-height: 6vh;
+        max-height: 6vh;
+    }
+
+    nav.navmenu {
+        max-height: 6vh;
+    }
+
+    .conteudo {
+        height: calc(100vh - 6vh);
     }
     .conteudo-informacional > h1 {
         font-size: 1.2em;
@@ -49,4 +316,5 @@
     }
 
 
-} */
+}
+
