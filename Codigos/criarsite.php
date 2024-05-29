@@ -16,6 +16,11 @@ if (!isset($_SESSION['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/styleprincipal.css">
     <link rel="stylesheet" href="estilos/indexhtml/mqstyleprincipal.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 <body>
     <main>
@@ -59,7 +64,7 @@ if (!isset($_SESSION['login'])) {
                     
                     <div class="conteudo-opcoes-criar-site-esquerdo">
                         <p>
-                            Clique no botão ao lado para adicionar uma nova pagina ao seu site! <br>
+                            Clique no botão ao lado para adicionar uma nova pagina ao seu site!
                             Ou se preferir, basta continuar editando a pagina atual.
                         </p>
                     </div>
@@ -74,6 +79,7 @@ if (!isset($_SESSION['login'])) {
                         <input type="text" name="ninput-titulo-de-cabecario" class="input-titulo-de-cabecario" id="inomedapagina">
                         <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
                         <textarea name="area-de-edicao-do-site" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-site"></textarea>
+                        <textarea id="summernote" name="editordata"></textarea>
                     </div>
                 </div>
                 <div class="conteudo-fundo">
@@ -139,6 +145,10 @@ if (!isset($_SESSION['login'])) {
             </footer>
         </section>
     </main>
-    
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
 </body>
 </html>

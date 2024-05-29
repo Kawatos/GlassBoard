@@ -280,7 +280,9 @@ div.navmenu-usuario > a > span {
 }
 
 .conteudo-opcoes-criar-site-esquerdo {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 80%;
     color: var(--cinzaclaro2);
     margin-top: 0.5vw;
@@ -288,6 +290,9 @@ div.navmenu-usuario > a > span {
     margin-right: 1vw;
     margin-left: 1vw;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    padding: 0.5vw;
+}
+.conteudo-opcoes-criar-site-esquerdo > p {
     padding: 0.5vw;
 }
 
