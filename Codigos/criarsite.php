@@ -55,7 +55,7 @@ if (!isset($_SESSION['login'])) {
                      <h1>Crie seu site aqui!</h1>
                 </div>
                 
-                <div class="conteudo-fundo">
+                <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
                     
                     <div class="conteudo-opcoes-criar-site-esquerdo">
                         <p>
@@ -69,9 +69,11 @@ if (!isset($_SESSION['login'])) {
                 </div>
                 <div class="conteudo-fundo">
                     <div class="conteudo-opcoes" id="ieditar-pagina">
-                        <label for="inomedapagina" class="titulo-de-cabecario-label">Titulo</label> <br>
-                        <input type="text" class="input-titulo-de-cabecario" id="inomedapagina">
-                        
+                        <h1 class="titulo-de-opcao">Editar Página</h1>
+                        <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Título da Página</h1></label>
+                        <input type="text" name="ninput-titulo-de-cabecario" class="input-titulo-de-cabecario" id="inomedapagina">
+                        <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
+                        <textarea name="area-de-edicao-do-site" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-site"></textarea>
                     </div>
                 </div>
                 <div class="conteudo-fundo">
