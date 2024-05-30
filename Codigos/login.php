@@ -2,7 +2,6 @@
 ob_start();
 session_start();
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
@@ -14,10 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = "TCRCt000#";
     $dbname = "id22176838_glassboard"; */
 
-    
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-  
     if ($conn->connect_error) {
         die("Falha na conexão: " . $conn->connect_error);
     }
@@ -25,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = mysqli_real_escape_string($conn, $_POST["login"]);
     $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
 
-    
     $sql = "SELECT * FROM usuarios WHERE email='$login' AND senha='$senha'";
     $result = $conn->query($sql);
 
@@ -33,7 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['login'] = $login;
-        header("Location: sites.php");
+        $_SESSION['user_id'] = $row['id']; // Adiciona o ID do usuário na sessão
+        header("Location: feedback.php"); // Redireciona para a página de feedback
         exit();
     } else {
         echo "Usuário ou senha inválidos.";
@@ -41,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
-
 
 ob_end_flush();
 ?>
@@ -63,12 +59,6 @@ ob_end_flush();
                 <h1 id="logo">GlassBoard</h1>
             </div>
             <div id="formulario-menu">
-                
-                <p>
-                <?php
-                
-                ?>
-                </p>
                 <form action="login.php" method="post" class="lpformulario">
                     <h1>Login</h1> <br>
                     <div class="campo">
