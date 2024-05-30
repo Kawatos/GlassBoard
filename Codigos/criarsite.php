@@ -16,12 +16,10 @@ if (!isset($_SESSION['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/styleprincipal.css">
     <link rel="stylesheet" href="estilos/indexhtml/mqstyleprincipal.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-</head>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <body>
     <main>
         <section class="principal-menu" id="iprincipal-menu">
@@ -78,67 +76,19 @@ if (!isset($_SESSION['login'])) {
                         <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Título da Página</h1></label>
                         <input type="text" name="ninput-titulo-de-cabecario" class="input-titulo-de-cabecario" id="inomedapagina">
                         <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
-                        <textarea name="area-de-edicao-do-site" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-site"></textarea>
-                        <textarea id="summernote" name="editordata"></textarea>
+                        <!-- <textarea name="area-de-edicao-do-site" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-site"></textarea> -->
+                        <div class="summernotediv">
+                            <div id="summernote" class="summernote"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 2</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 3</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
+                    <div class="conteudo-opcoes-area-texto" id="">
+                        <h1 class="titulo-de-opcao">Autor</h1>
+                        <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Autor</h1></label>
+                        <input type="text" name="ninput-titulo-de-cabecario" class="input-titulo-de-cabecario" id="inomedoautor">
                     </div>
                 </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 4</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 5</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 6</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 7</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 8</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                
             </div>
             <footer>
             
@@ -146,9 +96,27 @@ if (!isset($_SESSION['login'])) {
         </section>
     </main>
     <script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
-    </script>
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      placeholder: 'Esceva seu código aqui!',
+      tabsize: 5,
+      
+      maxHeight: 'calc(100%)',
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview', 'help']]
+      ]
+    });
+     // Ajuste adicional para garantir que o Summernote ocupe 100% da altura
+    $('.note-editor').css('height', '100%');
+    $('.note-editable').css('height', '30vh'); // Ajusta a altura do editor, considerando a altura da barra de ferramentas
+   
+  });
+</script>
 </body>
 </html>
