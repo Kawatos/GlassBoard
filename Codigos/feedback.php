@@ -40,86 +40,17 @@ if (!isset($_SESSION['login'])) {
             <div class="conteudo" id="iconteudo">
                 
                 <div class="conteudo-informacional">
-                     <h1>Nos deixe o seu Feedback!</h1>
+                     <h1>Me deixe o seu Feedback!</h1>
                 </div>
                 
                 <div class="conteudo-fundo">
-                    <a href="criarsite.php" class="conteudo-opcoes-novosite">
-                        <div>
-                            <h2>Exemplo</h2>
-                        </div>
-                    </a>
-                    <div class="conteudo-opcoes-novosite-direito">
-                        <p>
-                            Clique no botão ao lado para criar o seu primeiro site! <br>
-                            É realmente muito simples e intuitivo pois utilizamos de modelos pré-projetados!
-                        </p>
+                    <div class="conteudo-opcoes-area-texto" id="caixa-do-feedback">
+                        <h1 class="titulo-de-opcao">A sua opinião é realmente muito importante para mim!</h1>
+                        <h2>Não tenha medo de elogiar ou de criticar. <br>Críticas construtivas são tão bem-vindas quanto elogios!</h2>
+                        <textarea name="area-de-edicao-do-site" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-feedback"></textarea>
                     </div>
                 </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 1</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 2</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 3</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 4</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 5</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 6</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 7</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 8</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
+                
                 
             </div>
             <footer>

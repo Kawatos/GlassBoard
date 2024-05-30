@@ -394,6 +394,21 @@ div.navmenu-usuario > a > span {
     margin-top: 2vh;
 }
 
+#iarea-de-edicao-do-feedback {
+    height: 80vh;
+}
+
+#caixa-do-feedback {
+    height: 60vh;
+}
+
+#caixa-do-feedback > h2 {
+    padding: 1vw;
+    font-size: 1.2em;
+    color: var(--cinzaescuro2);
+}
+
+
 .summernotediv {
     display: block;
     flex-direction: column;
