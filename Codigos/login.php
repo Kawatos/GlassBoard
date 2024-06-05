@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['login'] = $login;
         $_SESSION['user_id'] = $row['id']; // Adiciona o ID do usuário na sessão
-        header("Location: feedback.php"); // Redireciona para a página de feedback
+        header("Location: sites.php"); // Redireciona para a página de feedback
         exit();
     } else {
         echo "Usuário ou senha inválidos.";

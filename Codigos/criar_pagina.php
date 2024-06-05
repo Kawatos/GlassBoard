@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $author = $data['author'];
         
         
-        $filename = strtolower(str_replace(' ', '_', $title)) . '.html';
+        $filename = urlencode(strtolower(str_replace(' ', '_', $title)) . '.html');
         
         
         $filePath = 'documentos/' . $filename;

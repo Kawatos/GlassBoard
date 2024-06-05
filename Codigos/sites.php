@@ -5,6 +5,28 @@ if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit();
 }
+
+if (!isset($_SESSION['user_id'])) {
+    die("Erro: ID do usuário não está definido na sessão.");
+}
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "glassboard";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
+
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
