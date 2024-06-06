@@ -86,62 +86,37 @@ if (!isset($_SESSION['login'])) {
                         <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
                     </div>
                 </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 2</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 3</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 4</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 5</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 6</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 7</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 8</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data da Publicação</th>
+                            <th>Título</th>
+                            <th>Artigo</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $sqlSelect = "SELECT * FROM documentos";
+                        $result = mysqli_query($conn, $sqlSelect);
+                        while ($data = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                                <td><?php  echo $data["date"]?></td>
+                                <td><?php  echo $data["title"]?></td>
+                                <td><?php  echo $data["summary"]?></td>
+                                <td>
+                                    <a class="btn btn-info" href="#?id=<?php  echo $data["id"]?>">View</a>
+                                    <a class="btn btn-warning" href="#?id=<?php  echo $data["id"]?>">Edit</a>
+                                    <a class="btn btn-danger" href="#?id=<?php  echo $data["id"]?>">delete</a>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+
+                </table>
                 
             </div>
             <footer>

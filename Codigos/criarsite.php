@@ -16,7 +16,7 @@ if (!isset($_SESSION['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/styleprincipal.css">
     <link rel="stylesheet" href="estilos/indexhtml/mqstyleprincipal.css">
-    
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
@@ -69,29 +69,30 @@ if (!isset($_SESSION['login'])) {
                         <h2>Nova página</h2>
                     </a>
                 </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes" id="ieditar-pagina">
-                        <h1 class="titulo-de-opcao">Editar Página</h1>
-                        <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Título da Página</h1></label>
-                        <input type="text" name="ninput-titulo-de-cabecario" class="input-titulo-de-cabecario" id="inomedapagina"> 
-                        <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
-                        <!-- <textarea name="area-de-edicao-do-site" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-site"></textarea> -->
-                        <div class="summernotediv">
-                            <div id="summernote" class="summernote"></div> 
+                <form action="processos.php" method="post">
+                    <div class="conteudo-fundo">
+                        <div class="conteudo-opcoes" id="ieditar-pagina">
+                            <h1 class="titulo-de-opcao">Editar Página</h1>
+                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Título da Página</h1></label>
+                            <input type="text" name="title" class="input-titulo-de-cabecario" id="inomedapagina">
+                    
+                            <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Autor</h1></label>
+                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor">
+                            <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Sumário</h1></label>
+                            <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor">
+                            <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
+                            <textarea name="content" id="" cols="30" rows="10" placeholder="Digite o conteudo"></textarea>
+                            <!-- <div class="summernotediv">
+                                <div id="summernote" class="summernote" name="summernote" ></div>
+                            </div> -->
+                            <input type="hidden" name="date" value="<?php echo date("y/m/d"); ?>">
                         </div>
-
                     </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes-area-texto" id="">
-                        <h1 class="titulo-de-opcao">Autor</h1>
-                        <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Autor</h1></label>
-                        <input type="text" name="ninput-titulo-de-cabecario" class="input-titulo-de-cabecario" id="inomedoautor">
+                    <div class="conteudo-fundo">
+                        <input type="submit" value="Criar Nova Página" name="criarnovapagina">
                     </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <button id="criarPaginaBtn">Criar Nova Página</button>
-                </div>
+                </form>
+                
             </div>
 
             <footer>
@@ -116,38 +117,9 @@ if (!isset($_SESSION['login'])) {
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
             });
-            $('.note-editor').css('height', '100%');
+            $('.note-editor').css('height', 'g');
             $('.note-editable').css('height', '30vh'); 
-
-            
-            document.getElementById('criarPaginaBtn').addEventListener('click', function() {
-                const titulo = document.getElementById('inomedapagina').value;
-                const conteudo = $('#summernote').summernote('code');
-                const autor = document.getElementById('inomedoautor').value;
-
-                fetch('criar_pagina.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        title: titulo,
-                        content: conteudo,
-                        author: autor
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Página criada com sucesso!');
-                        window.location.href = data.url;
-                    } else {
-                        alert('Erro ao criar a página.');
-                    }
-                })
-                .catch(error => console.error('Erro:', error));
-            });
-  });
+        });
 </script>
 </body>
 </html>
