@@ -13,25 +13,6 @@ if (!isset($_SESSION['user_id'])) {
 
 include("connect.php");
 
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_id = $_SESSION['user_id'];
-    $message = $conn->real_escape_string($_POST['message']); // Escapa a mensagem para evitar SQL Injection
-
-    
-    $sql = "INSERT INTO mensagens (user_id, message) VALUES ('$user_id', '$message')";
-
-    if ($conn->query($sql) === TRUE) {
-        $feedback = "Mensagem enviada com sucesso!";
-    } else {
-        $feedback = "Erro ao enviar mensagem: " . $conn->error;
-    }
-}
-
 $conn->close();
 ?>
 
@@ -70,14 +51,24 @@ $conn->close();
                      <h1>Me deixe o seu Feedback!</h1>
                 </div>
                 <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes-area-texto" id="caixa-do-feedback">
-                        <h1 class="titulo-de-opcao">A sua opinião é realmente muito importante para mim!</h1>
-                        <h2>Não tenha medo de elogiar ou de criticar. <br>Críticas construtivas são tão bem-vindas quanto elogios!</h2>
-                        <p id="mensagemdofeedback"><?php if (isset($feedback)) { echo "$feedback"; } ?></p>
-                        <form method="post" action="">
-                            <textarea name="message" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-feedback" placeholder="Digite sua mensagem aqui..." required maxlength="200"></textarea>
-                            <div class="conteudo-fundo" id="conteudo-fundo-feedback"><button type="submit" id="botao-do-feedback">Enviar</button></div>
-                        </form>
+                    <div>
+                        <?php 
+                        $id = $_GET["id"];
+                        if ($id) {
+                            include("connect.php");
+                            $sqlSelectPost = "SELECT * FROM documentos WHERE id = $id";
+                            $result = mysqli_query($conn, $sqlSelectPost);
+                            while ($data = mysqli_fetch_array($result)) {
+                            ?>
+                            <h1><?php echo $data['title']; ?></h1>
+                            <p><?php echo $data['date']; ?></p>
+                            <p><?php echo $data['content']; ?></p>
+                            <?php
+                            }
+                        } else {
+                            echo "Post nao encontrado";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

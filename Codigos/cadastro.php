@@ -21,25 +21,11 @@
                 <?php
                 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "glassboard";
-
-                    /* $servername = "localhost";
-                    $username = "id22176838_kawatos";
-                    $password = "TCRCt000#";
-                    $dbname = "id22176838_glassboard"; */
-
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-
-                    
+                    include("connect.php");
                     if ($conn->connect_error) {
                         die("Falha na conexão: " . $conn->connect_error);
                     }
 
-                    
                     $nome = $_POST["primeironome"];
                     $email = $_POST["primeirologin"];
                     $senha = $_POST["primeirasenha"];
@@ -54,7 +40,6 @@
                         echo "Erro ao inserir registro: " . $conn->error;
                     }
 
-                    
                     $conn->close();
                 }
                 ?>

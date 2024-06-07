@@ -3,17 +3,11 @@ ob_start();
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "glassboard";
+    
 
-    /* $servername = "localhost";
-    $username = "id22176838_kawatos";
-    $password = "TCRCt000#";
-    $dbname = "id22176838_glassboard"; */
+    
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    include("connect.php");
 
     if ($conn->connect_error) {
         die("Falha na conexão: " . $conn->connect_error);

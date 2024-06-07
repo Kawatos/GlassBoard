@@ -10,3 +10,10 @@ if (!$conn) {
     die("Erro na hora de conectar");
 }
 ?>
+
+<!--
+    $servername = "localhost";
+    $username = "id22176838_kawatos";
+    $password = "TCRCt000#";
+    $dbname = "id22176838_glassboard";
+-->

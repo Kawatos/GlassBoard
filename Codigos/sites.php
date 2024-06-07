@@ -98,7 +98,7 @@ if (!isset($_SESSION['login'])) {
                                 <td><?php  echo $data["title"]?></td>
                                 <td><?php  echo $data["summary"]?></td>
                                 <td>
-                                    <a class="btn btn-info" href="#?id=<?php  echo $data["id"]?>">View</a>
+                                    <a class="btn btn-info" href="visualizador.php?id=<?php  echo $data["id"]?>">View</a>
                                     <a class="btn btn-warning" href="editarsite.php?id=<?php  echo $data["id"]?>">Edit</a>
                                     <a class="btn btn-danger" href="delete.php?id=<?php  echo $data["id"]?>">delete</a>
                                 </td>
