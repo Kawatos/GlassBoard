@@ -9,15 +9,7 @@ if (!isset($_SESSION['login'])) {
 if (!isset($_SESSION['user_id'])) {
     die("Erro: ID do usuário não está definido na sessão.");
 }
-
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "glassboard";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+include("connect.php");
 
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
@@ -107,8 +99,8 @@ if (!isset($_SESSION['login'])) {
                                 <td><?php  echo $data["summary"]?></td>
                                 <td>
                                     <a class="btn btn-info" href="#?id=<?php  echo $data["id"]?>">View</a>
-                                    <a class="btn btn-warning" href="#?id=<?php  echo $data["id"]?>">Edit</a>
-                                    <a class="btn btn-danger" href="#?id=<?php  echo $data["id"]?>">delete</a>
+                                    <a class="btn btn-warning" href="editarsite.php?id=<?php  echo $data["id"]?>">Edit</a>
+                                    <a class="btn btn-danger" href="delete.php?id=<?php  echo $data["id"]?>">delete</a>
                                 </td>
                             </tr>
                         <?php
