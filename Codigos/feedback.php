@@ -21,7 +21,6 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = $_SESSION['user_id'];
     $message = $conn->real_escape_string($_POST['message']); // Escapa a mensagem para evitar SQL Injection
-
     
     $sql = "INSERT INTO mensagens (user_id, message) VALUES ('$user_id', '$message')";
 

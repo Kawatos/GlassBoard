@@ -20,6 +20,28 @@ if ($id) {
 
 ?>
 
+<?php
+include("connect.php");
+
+$sqlSelect = "SELECT title, author, summary, content FROM documentos WHERE id = ?";
+$stmt = $conn->prepare($sqlSelect);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $title = $row['title'];
+    $author = $row['author'];
+    $summary = $row['summary'];
+    $content = $row['content'];
+} else {
+    echo "Dados nao encontrados";
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -86,23 +108,20 @@ if ($id) {
                         <div class="conteudo-opcoes" id="ieditar-pagina">
                             <h1 class="titulo-de-opcao">Editar Página</h1>
                             <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Título da Página</h1></label>
-                            <input type="text" name="title" class="input-titulo-de-cabecario" id="inomedapagina">
-                    
+                            <input type="text" name="title" class="input-titulo-de-cabecario" id="inomedapagina" value="<?php echo $title; ?>">
+                        
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Autor</h1></label>
-                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor">
+                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo $author; ?>">
+                            
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Sumário</h1></label>
-                            <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor">
+                            <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo $summary; ?>">
+                            
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
-                            <textarea name="content" id="" cols="30" rows="10" placeholder="Digite o conteudo"></textarea>
-                            <!-- <div class="summernotediv">
-                                <div id="summernote" class="summernote" name="summernote" ></div>
-                            </div> -->
+                            <textarea name="content" id="" cols="30" rows="10" placeholder="Digite o conteudo"><?php echo $content; ?></textarea>
+
                             <input type="hidden" name="date" value="<?php echo date("y/m/d"); ?>">
                             <input type="hidden" name="id" value="<?php echo $id; ?>">
                         </div>
-                    </div>
-                    <div class="conteudo-fundo">
-                        <input type="submit" value="Criar Nova Página" name="criarnovapagina">
                     </div>
                 </form>
                 
