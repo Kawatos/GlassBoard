@@ -98,6 +98,9 @@ if ($result->num_rows > 0) {
                             <div class="conteudo-opcoes-criar-site">
                                 <input type="submit" value="Atualizar Página" name="update-perfil">
                             </div>
+                            <div class="conteudo-opcoes-criar-site">
+                                <input type="submit" value="Apagar Usuario" name="delete-perfil">
+                            </div>
                         </div>
                     
                         <div class="conteudo-fundo">

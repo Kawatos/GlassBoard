@@ -72,4 +72,24 @@ if (isset($_POST["update-perfil"])) {
         die("Dados não foram atualizados: " . mysqli_error($conn));
     }
 }
+
+if (isset($_POST["delete-perfil"])) {
+    if ($user_id) {
+    
+        $sqlDelete = "DELETE FROM usuarios WHERE id = $user_id";
+        if (mysqli_query($conn, $sqlDelete)) {
+            session_start();
+            session_unset();
+            session_destroy();
+            header("Location: login.php");
+            exit();
+        } else {
+            die("Usuario Nao Exluido");
+        }
+    } else {
+        echo "Post nao encontrado";
+    }
+}
+
+
 ?>
