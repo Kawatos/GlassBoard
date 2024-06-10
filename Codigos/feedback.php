@@ -73,9 +73,9 @@ $conn->close();
                         <h1 class="titulo-de-opcao">A sua opinião é realmente muito importante para mim!</h1>
                         <h2>Não tenha medo de elogiar ou de criticar. <br>Críticas construtivas são tão bem-vindas quanto elogios!</h2>
                         <p id="mensagemdofeedback"><?php if (isset($feedback)) { echo "$feedback"; } ?></p>
-                        <form method="post" action="">
-                            <textarea name="message" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-feedback" placeholder="Digite sua mensagem aqui..." required maxlength="200"></textarea>
-                            <div class="conteudo-fundo" id="conteudo-fundo-feedback"><button type="submit" id="botao-do-feedback">Enviar</button></div>
+                        <form method="post" action="processos.php">
+                            <textarea name="mensagem" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-feedback" placeholder="Digite sua mensagem aqui..." required maxlength="200"></textarea>
+                            <div class="conteudo-fundo" id="conteudo-fundo-feedback"><button type="submit" id="botao-do-feedback" name="feedback">Enviar</button></div>
                         </form>
                     </div>
                 </div>

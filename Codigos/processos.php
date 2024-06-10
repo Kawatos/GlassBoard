@@ -72,4 +72,15 @@ if (isset($_POST["update-perfil"])) {
         die("Dados não foram atualizados: " . mysqli_error($conn));
     }
 }
+
+if (isset($_POST["feedback"])) {
+    $message = mysqli_real_escape_string($conn, $_POST["mensagem"]);
+
+    $sqlInsert = "INSERT INTO mensagens (message, user_id) VALUES ('$message', '$user_id')";
+    if (mysqli_query($conn, $sqlInsert)){
+        header("Location: feedback.php");
+    } else {
+        die("Dados não foram inseridos: " . mysqli_error($conn));
+    }
+}
 ?>
