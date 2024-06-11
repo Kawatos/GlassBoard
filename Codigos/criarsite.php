@@ -80,6 +80,7 @@ include('user_session.php');
                             <!-- <div class="summernotediv">
                                 <div id="summernote" class="summernote" name="summernote" ></div>
                             </div> -->
+                            <!--TODO - o date vc pode gerar quando por salvar, la no processos e é bom pegar a data completa com horario -->
                             <input type="hidden" name="date" value="<?php echo date("y/m/d"); ?>">
                             <input type="hidden">
                         </div>

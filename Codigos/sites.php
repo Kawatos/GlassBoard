@@ -15,6 +15,7 @@ include('user_session.php');
 <body>
     <main>
         <section class="principal-menu" id="iprincipal-menu">
+            <!-- TODO - o header é bom vc colooar em um arquivo separado e incluir eles das paginas para facilitar a manutenção -->
             <header class="headermenu">
                 <nav class="navmenu" id="inavamenu">
                     <div class="logo">
@@ -68,6 +69,7 @@ include('user_session.php');
                     </thead>
                     <tbody>
                         <?php 
+                        //TODO - não é necessário utilizar o htmlspecialchars para exibir id, pq o id é um inteiro e não tem tags html
                         while ($data = $resultDocuments->fetch_assoc()) {
                             ?>
                             <tr>

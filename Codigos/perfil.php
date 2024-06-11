@@ -48,6 +48,8 @@ include('user_session.php');
                             <div class="conteudo-opcoes-criar-site">
                                 <input type="submit" value="Atualizar Página" name="update-perfil">
                             </div>
+
+                            <!--TODO - é bom separar a ação de atualizar e apagar, e tbm colocar uam confirmação antes de apagar - https://www.w3schools.com/jsref/met_win_confirm.asp -->
                             <div class="conteudo-opcoes-criar-site">
                                 <input type="submit" value="Apagar Usuario" name="delete-perfil">
                             </div>
