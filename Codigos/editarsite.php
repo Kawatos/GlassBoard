@@ -21,7 +21,6 @@ if ($id) {
 ?>
 
 <?php
-include("connect.php");
 
 $sqlSelect = "SELECT title, author, summary, content FROM documentos WHERE id = ?";
 $stmt = $conn->prepare($sqlSelect);

@@ -1,33 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit();
-}
-
-if (!isset($_SESSION['user_id'])) {
-    die("Erro: ID do usuário não está definido na sessão.");
-}
-
-include("connect.php");
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-$user_id = $_SESSION['user_id'];
-
-$sqlSelect = "SELECT * FROM documentos WHERE user_id = ?";
-$stmt = $conn->prepare($sqlSelect);
-
-if ($stmt === false) {
-    die("Erro na preparação da consulta SQL: " . $conn->error);
-}
-
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+include('user_session.php');
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +26,7 @@ $result = $stmt->get_result();
                         <a href="ajuda.php">Ajuda</a>
                         <a href="feedback.php">Deixe aqui o seu feedback!</a>
                         <div class="navmenu-usuario">
-                            <a href="perfil.php"><?php echo $_SESSION['nome']; ?><span class="material-symbols-outlined">person</span></a>
+                            <a href="perfil.php"><?php echo htmlspecialchars($nome); ?><span class="material-symbols-outlined">person</span></a>
                             <a href="logout.php">Sair<span class="material-symbols-outlined">logout</span></a>
                         </div>
                     </div>
@@ -96,22 +68,20 @@ $result = $stmt->get_result();
                     </thead>
                     <tbody>
                         <?php 
-                        while ($data = $result->fetch_assoc()) {
+                        while ($data = $resultDocuments->fetch_assoc()) {
                             ?>
                             <tr>
-                                <td><?php echo $data["date"]; ?></td>
-                                <td><?php echo $data["title"]; ?></td>
-                                <td><?php echo $data["summary"]; ?></td>
+                                <td><?php echo htmlspecialchars($data["date"]); ?></td>
+                                <td><?php echo htmlspecialchars($data["title"]); ?></td>
+                                <td><?php echo htmlspecialchars($data["summary"]); ?></td>
                                 <td>
-                                    <a class="btn btn-info" href="visualizador.php?id=<?php echo $data["id"]; ?>">View</a>
-                                    <a class="btn btn-warning" href="editarsite.php?id=<?php echo $data["id"]; ?>">Edit</a>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $data["id"]; ?>">delete</a>
+                                    <a class="btn btn-info" href="visualizador.php?id=<?php echo htmlspecialchars($data["id"]); ?>">View</a>
+                                    <a class="btn btn-warning" href="editarsite.php?id=<?php echo htmlspecialchars($data["id"]); ?>">Edit</a>
+                                    <a class="btn btn-danger" href="delete.php?id=<?php echo htmlspecialchars($data["id"]); ?>">delete</a>
                                 </td>
                             </tr>
                         <?php
                         }
-                        $stmt->close();
-                        $conn->close();
                         ?>
                     </tbody>
                 </table>

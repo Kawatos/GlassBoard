@@ -1,33 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit();
-}
-
-if (!isset($_SESSION['user_id'])) {
-    die("Erro: ID do usuário não está definido na sessão.");
-}
-
-include("connect.php");
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-$user_id = $_SESSION['user_id'];
-
-$sqlSelect = "SELECT * FROM documentos WHERE user_id = ?";
-$stmt = $conn->prepare($sqlSelect);
-
-if ($stmt === false) {
-    die("Erro na preparação da consulta SQL: " . $conn->error);
-}
-
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+include('user_session.php');
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +29,7 @@ $result = $stmt->get_result();
                         <a href="ajuda.php">Ajuda</a>
                         <a href="Feedback.php">Deixe aqui o seu feedback!</a>
                         <div class="navmenu-usuario">
-                            <a href="perfil.php"><?php echo $_SESSION['nome']; ?><span class="material-symbols-outlined">person</span></a>
+                            <a href="perfil.php"><?php echo htmlspecialchars($nome); ?><span class="material-symbols-outlined">person</span></a>
                             <a href="logout.php">Sair<span class="material-symbols-outlined">logout</span></a>
                         </div>
                     </div>

@@ -1,55 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit();
-}
-
-if (!isset($_SESSION['user_id'])) {
-    die("Erro: ID do usuário não está definido na sessão.");
-}
-
-include("connect.php");
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-$id = $_SESSION['user_id'];
-
-$sqlSelect = "SELECT * FROM usuarios WHERE id = ?";
-$stmt = $conn->prepare($sqlSelect);
-
-if ($stmt === false) {
-    die("Erro na preparação da consulta SQL: " . $conn->error);
-}
-
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-?>
-
-<?php
-include("connect.php");
-
-$sqlSelect = "SELECT email, nome, senha FROM usuarios WHERE id = ?";
-$stmt = $conn->prepare($sqlSelect);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $email = $row['email'];
-    $nome = $row['nome'];
-    $senha = $row['senha'];
-} else {
-    echo "Dados nao encontrados";
-}
-
-
+include('user_session.php');
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +26,7 @@ if ($result->num_rows > 0) {
                         <a href="ajuda.php">Ajuda</a>
                         <a href="feedback.php">Deixe aqui o seu feedback!</a>
                         <div class="navmenu-usuario">
-                            <a href="perfil.php"><?php echo $nome; ?><span class="material-symbols-outlined">person</span></a>
+                            <a href="perfil.php"><?php echo htmlspecialchars($nome); ?><span class="material-symbols-outlined">person</span></a>
                             <a href="logout.php">Sair<span class="material-symbols-outlined">logout</span></a>
                         </div>
                     </div>

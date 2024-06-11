@@ -67,7 +67,7 @@ if (isset($_POST["update-perfil"])) {
 
     $sqlUpdate = "UPDATE usuarios SET email = '$email', nome = '$nome', senha = '$senha' WHERE id = '$user_id'";
     if (mysqli_query($conn, $sqlUpdate)){
-        header("Location: sites.php");
+        header("Location: perfil.php");
     } else {
         die("Dados não foram atualizados: " . mysqli_error($conn));
     }
