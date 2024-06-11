@@ -1,10 +1,27 @@
 <?php
-session_start();
+include('user_session.php');
 
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
+$sqlSelectUser = "SELECT email, nome, senha FROM usuarios WHERE id = ?";
+$stmtUser = $conn->prepare($sqlSelectUser);
+
+if ($stmtUser === false) {
+    die("Erro na preparação da consulta SQL (usuário): " . $conn->error);
+}
+
+$stmtUser->bind_param("i", $user_id);
+$stmtUser->execute();
+$resultUser = $stmtUser->get_result();
+
+if ($resultUser->num_rows > 0) {
+    $row = $resultUser->fetch_assoc();
+    $email = $row['email'];
+    $nome = $row['nome'];
+    $senha = $row['senha'];
+} else {
+    echo "Dados não encontrados";
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
