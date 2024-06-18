@@ -5,9 +5,7 @@ if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit();
 }
-?>
 
-<?php 
 $id = $_GET['id'];
 if ($id) {
     include("connect.php");
@@ -17,16 +15,12 @@ if ($id) {
     echo "Nenhuma postagem encontrada";
 }
 
-
-?>
-
-<?php
-
 $sqlSelect = "SELECT title, author, summary, content FROM documentos WHERE id = ?";
 $stmt = $conn->prepare($sqlSelect);
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
+
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -37,7 +31,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "Dados nao encontrados";
 }
-
 
 ?>
 
@@ -68,7 +61,7 @@ if ($result->num_rows > 0) {
                         <a href="ajuda.php">Ajuda</a>
                         <a href="Feedback.php">Deixe aqui o seu feedback!</a>
                         <div class="navmenu-usuario">
-                            <a href="perfil.php"><?php echo $_SESSION['nome']; ?><span class="material-symbols-outlined">person</span></a>
+                            <a href="perfil.php"><?php echo ($nome); ?><span class="material-symbols-outlined">person</span></a>
                             <a href="logout.php">Sair<span class="material-symbols-outlined">logout</span></a>
                         </div>
                     </div>
@@ -83,7 +76,6 @@ if ($result->num_rows > 0) {
                     <a href="#">5</a>
                     <a href="#">6</a>
                 </div>
-                
             </div>
             <div class="conteudo-editor" id="iconteudo">
                 
@@ -123,15 +115,14 @@ if ($result->num_rows > 0) {
                         </div>
                     </div>
                 </form>
-                
             </div>
-
             <footer>
-            
+
             </footer>
         </section>
     </main>
     <script>
+
         $(document).ready(function() {
             $('#summernote').summernote({
             placeholder: 'Esceva seu código aqui!',
@@ -151,6 +142,8 @@ if ($result->num_rows > 0) {
             $('.note-editor').css('height', 'g');
             $('.note-editable').css('height', '30vh'); 
         });
+        
+
 </script>
 </body>
 </html>
