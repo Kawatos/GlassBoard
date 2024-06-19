@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = mysqli_real_escape_string($conn, $_POST["login"]);
     $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
 
-    $sql = "SELECT * FROM usuarios WHERE email='$login' AND senha='$senha'";
+    $sql = "SELECT * FROM usuarios WHERE email='$login' AND (senha='$senha' OR senha='md5($senha)')";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

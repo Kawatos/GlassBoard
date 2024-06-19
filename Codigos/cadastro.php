@@ -28,7 +28,7 @@
 
                     $nome = $_POST["primeironome"];
                     $email = $_POST["primeirologin"];
-                    $senha = $_POST["primeirasenha"];
+                    $senha = md5($_POST["primeirasenha"]);
 
                     
                     $sql = "INSERT INTO usuarios (nome, email, senha)

@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream
 session_start();
 
 if (!isset($_SESSION['login'])) {
@@ -13,6 +14,22 @@ if (!isset($_SESSION['user_id'])) {
 include("connect.php");
 $user_id = $_SESSION['user_id'];
 
+=======
+include('user_session.php');
+
+$sqlSelectDocuments = "SELECT * FROM documentos WHERE user_id = ?";
+$stmtDocuments = $conn->prepare($sqlSelectDocuments);
+
+if ($stmtDocuments === false) {
+    die("Erro na preparação da consulta SQL (documentos): " . $conn->error);
+}
+
+$stmtDocuments->bind_param("i", $user_id);
+$stmtDocuments->execute();
+$resultDocuments = $stmtDocuments->get_result();
+
+//TODO - mesmo caso da query documentos
+>>>>>>> Stashed changes
 $sqlSelectUser = "SELECT email, nome, senha FROM usuarios WHERE id = ?";
 $stmtUser = $conn->prepare($sqlSelectUser);
 
@@ -33,7 +50,10 @@ if ($resultUser->num_rows > 0) {
     echo "Dados não encontrados";
     exit();
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
