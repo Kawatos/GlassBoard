@@ -33,7 +33,6 @@ if ($resultUser->num_rows > 0) {
     echo "Dados não encontrados";
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
