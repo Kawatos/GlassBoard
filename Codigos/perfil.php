@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION['login'])) {
@@ -13,9 +12,6 @@ if (!isset($_SESSION['user_id'])) {
 
 include("connect.php");
 $user_id = $_SESSION['user_id'];
-
-
-include('user_session.php');
 
 $sqlSelectDocuments = "SELECT * FROM documentos WHERE user_id = ?";
 $stmtDocuments = $conn->prepare($sqlSelectDocuments);
