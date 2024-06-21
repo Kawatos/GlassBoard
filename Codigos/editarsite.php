@@ -79,7 +79,8 @@ include ("header.php");
                             <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($summary); ?>">
                             
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
-                            <textarea name="content" id="" cols="30" rows="10" placeholder="Digite o conteudo"><?php echo htmlspecialchars($content); ?></textarea>
+                            
+                            <textarea name="content" id="summernote"><?php echo htmlspecialchars($content); ?></textarea>
 
                             <input type="hidden" name="date" value="<?php echo date("Y/m/d"); ?>">
                             <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">

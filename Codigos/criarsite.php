@@ -66,17 +66,15 @@ include ("header.php");
                             <h1 class="titulo-de-opcao">Editar Página</h1>
                             <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Título da Página</h1></label>
                             <input type="text" name="title" class="input-titulo-de-cabecario" id="inomedapagina">
-                    
-                            <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Autor</h1></label>
+
+                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Autor</h1></label>
                             <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor">
-                            <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Sumário</h1></label>
+                            
+                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Sumário</h1></label>
                             <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor">
-                            <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Conteúdo da Página</h1></label>
-                            <textarea name="content" id="" cols="30" rows="10" placeholder="Digite o conteudo"></textarea>
-                            <!-- <div class="summernotediv">
-                                <div id="summernote" class="summernote" name="summernote" ></div>
-                            </div> -->
-                            <input type="hidden">
+
+                            <label for="summernote" class="titulo-de-cabecario-label"><h1>Conteúdo da Página</h1></label>
+                            <textarea name="content" id="summernote"></textarea>
                         </div>
                     </div>
                     <div class="conteudo-fundo">
