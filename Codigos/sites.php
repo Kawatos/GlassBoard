@@ -56,7 +56,11 @@ include ("header.php");
 ?>
 
 
-
+            <script>
+                function confirmDelete() {
+                    return window.confirm("Você tem certeza que deseja apagar este site? Essa ação não poderá ser desfeita!");
+                }
+            </script>
             <div class="conteudo" id="iconteudo">
                 <div class="conteudo-informacional">
                      <h1>Sites</h1>
@@ -74,43 +78,39 @@ include ("header.php");
                         </p>
                     </div>
                 </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 1</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
                 <div class="conteudo-fundo-tabela">
-                    <table class="tabela-de-opcoes">
-                        <thead class="tabela-de-opcoes-head">
-                            <tr>
-                                <th>Título</th>
-                                <th>Sumário</th>
-                                <th>Data da Publicação</th>
-                                <th>Opções</th>
+                <table class="tabela-de-opcoes">
+                    <thead class="tabela-de-opcoes-head">
+                        <tr>
+                            <th>Título</th>
+                            <th>Sumário</th>
+                            <th>Data da Publicação</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $counter = 0; // Inicializa o contador
+                        while ($data = $resultDocuments->fetch_assoc()) {
+                            $rowClass = ($counter % 2 == 0) ? 'even-row' : 'odd-row'; // Define a classe com base no valor do contador
+                        ?>
+                            <tr class="<?php echo $rowClass; ?>">
+                                <td><?php echo ($data["title"]); ?></td>
+                                <td><?php echo ($data["summary"]); ?></td>
+                                <td><?php echo ($data["date"]); ?></td>
+                                <td class="tabela-botoes">
+                                    <a class="btn btn-info" href="visualizador.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-visualizar">Visualizar</a>
+                                    <a class="btn btn-warning" href="editarsite.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-editar">Editar</a>
+                                    <a class="btn btn-danger" href="delete.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-apagar" onclick="return confirmDelete()">Apagar</a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            while ($data = $resultDocuments->fetch_assoc()) {
-                                ?>
-                                <tr>
-                                    <td><?php echo ($data["title"]); ?></td>
-                                    <td><?php echo ($data["summary"]); ?></td>
-                                    <td><?php echo ($data["date"]); ?></td>
-                                    <td class="tabela-botoes">
-                                        <a class="btn btn-info" href="visualizador.php?id=<?php echo ($data["id"]); ?>">View</a>
-                                        <a class="btn btn-warning" href="editarsite.php?id=<?php echo ($data["id"]); ?>">Edit</a>
-                                        <a class="btn btn-danger" href="delete.php?id=<?php echo ($data["id"]); ?>">delete</a>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                        <?php
+                            $counter++; // Incrementa o contador
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
                 </div>
             </div>
             <footer>

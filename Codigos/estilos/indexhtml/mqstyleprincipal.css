@@ -13,7 +13,12 @@
     --marrom1: rgb(92, 64, 64);
     --transparente1: #4caf4f00;
     --cinzalogo: rgba(248, 248, 248, 0.582);
-
+    --vermelho: rgb(129, 17, 17);
+    --azul: rgb(5, 70, 155);
+    --amarelo: rgb(155, 153, 5);
+    --vermelho-forte: rgb(184, 27, 27);
+    --azul-forte: rgb(14, 104, 221);
+    --amarelo-forte: rgb(218, 214, 7);
 }
 
 * {
@@ -238,7 +243,7 @@ div.navmenu-usuario > a > span {
     height: 100%;
     max-height: 10vh;
     min-height: 10vh;
-    background-color: var(--cinzaclaro2);
+    background-color: var(--branco);
     margin: 1vw;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -256,7 +261,7 @@ div.navmenu-usuario > a > span {
     align-items: center;
     justify-content: left;
     width: 20%;
-    background-color: var(--cinzaclaro2);
+    background-color: var(--branco);
     margin-right: 2vw;
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
@@ -272,7 +277,7 @@ div.navmenu-usuario > a > span {
 
 .conteudo-opcoes-novosite:hover {
     background-color: var(--transparente1);
-    color: var(--cinzaclaro2);
+    color: var(--branco);
     cursor: pointer;
 }
 
@@ -399,19 +404,80 @@ div.navmenu-usuario > a > span {
 
 .tabela-de-opcoes {
     width: 100%;
+    border-collapse: collapse;
     background-color: var(--cinzaclaro2);
     text-align: center;
-    padding: 0.5vh;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
+
+.even-row {
+    background-color: var(--branco); /* Cor de fundo para linhas pares */
+}
+
+
+
+
 .tabela-de-opcoes > thead > tr > th {
     background-color: var(--branco);
-    padding: 1vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    width: 25%;
 }
 
 .tabela-botoes > a {
+    display: inline-block;
+    width: auto;
     text-decoration: none;
     padding-left: 0.5vw;
     padding-right: 0.5vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 0.9em;
+    
+}
+
+.tabela-de-opcoes > tbody > tr > td {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+#botao-tabela-apagar {
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border-radius: 6px;
+}
+
+#botao-tabela-editar {
+    background-color: var(--amarelo);
+    color: var(--branco);
+    border-radius: 6px;
+}
+
+#botao-tabela-visualizar {
+    background-color: var(--azul);
+    color: var(--branco);
+    border-radius: 6px;
+}
+
+#botao-tabela-apagar:hover {
+    background-color: var(--vermelho-forte);
+    color: var(--branco);
+    border-radius: 6px;
+}
+
+#botao-tabela-editar:hover {
+    background-color: var(--amarelo-forte);
+    color: var(--branco);
+    border-radius: 6px;
+}
+
+#botao-tabela-visualizar:hover {
+    background-color: var(--azul-forte);
+    color: var(--branco);
+    border-radius: 6px;
 }
 
 
