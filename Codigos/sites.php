@@ -79,38 +79,38 @@ include ("header.php");
                     </div>
                 </div>
                 <div class="conteudo-fundo-tabela">
-                <table class="tabela-de-opcoes">
-                    <thead class="tabela-de-opcoes-head">
-                        <tr>
-                            <th>Título</th>
-                            <th>Sumário</th>
-                            <th>Data da Publicação</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $counter = 0; // Inicializa o contador
-                        while ($data = $resultDocuments->fetch_assoc()) {
-                            $rowClass = ($counter % 2 == 0) ? 'even-row' : 'odd-row'; // Define a classe com base no valor do contador
-                        ?>
-                            <tr class="<?php echo $rowClass; ?>">
-                                <td><?php echo ($data["title"]); ?></td>
-                                <td><?php echo ($data["summary"]); ?></td>
-                                <td><?php echo ($data["date"]); ?></td>
-                                <td class="tabela-botoes">
-                                    <a class="btn btn-info" href="visualizador.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-visualizar">Visualizar</a>
-                                    <a class="btn btn-warning" href="editarsite.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-editar">Editar</a>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-apagar" onclick="return confirmDelete()">Apagar</a>
-                                </td>
+                    
+                    <table class="tabela-de-opcoes">
+                        <thead class="tabela-de-opcoes-head">
+                            <tr>
+                                <th>Título</th>
+                                <th>Sumário</th>
+                                <th>Data da Publicação</th>
+                                <th>Opções</th>
                             </tr>
-                        <?php
-                            $counter++; // Incrementa o contador
-                        }
-                        ?>
-                    </tbody>
-                </table>
-
+                        </thead>
+                        <tbody>
+                            <?php
+                            $counter = 0; // Inicializa o contador
+                            while ($data = $resultDocuments->fetch_assoc()) {
+                                $rowClass = ($counter % 2 == 0) ? 'even-row' : 'odd-row'; // Define a classe com base no valor do contador
+                            ?>
+                                <tr class="<?php echo $rowClass; ?>">
+                                    <td><?php echo ($data["title"]); ?></td>
+                                    <td><?php echo ($data["summary"]); ?></td>
+                                    <td><?php echo ($data["date"]); ?></td>
+                                    <td class="tabela-botoes">
+                                        <a class="btn btn-info" href="visualizador.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-visualizar">Visualizar</a>
+                                        <a class="btn btn-warning" href="editarsite.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-editar">Editar</a>
+                                        <a class="btn btn-danger" href="delete.php?id=<?php echo ($data["id"]); ?>" id="botao-tabela-apagar" onclick="return confirmDelete()">Apagar</a>
+                                    </td>
+                                </tr>
+                            <?php
+                                $counter++; // Incrementa o contador
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <footer>

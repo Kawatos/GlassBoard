@@ -48,38 +48,43 @@ include ("header.php");
                      <h1>Crie seu site aqui!</h1>
                 </div>
                 
-                <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
-                    
-                    <div class="conteudo-opcoes-criar-site-esquerdo">
-                        <p>
-                            Clique no botão ao lado para adicionar uma nova pagina ao seu site!
-                            Ou se preferir, basta continuar editando a pagina atual.
-                        </p>
-                    </div>
-                    <a href="#" class="conteudo-opcoes-criar-site">
-                        <h2>Nova página</h2>
-                    </a>
-                </div>
                 <form action="processos.php" method="post">
+                    <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
+                        
+                        <div class="conteudo-opcoes-criar-site-esquerdo">
+                            <p>
+                                Clique no botão ao lado para adicionar uma nova pagina ao seu site!
+                                Ou se preferir, basta continuar editando a pagina atual.
+                            </p>
+                        </div>
+                        <input class="conteudo-opcoes-criar-site" type="submit" value="Criar Nova Página" name="criarnovapagina">
+                        
+                    </div>
                     <div class="conteudo-fundo">
                         <div class="conteudo-opcoes" id="ieditar-pagina">
                             <h1 class="titulo-de-opcao">Editar Página</h1>
-                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Título da Página</h1></label>
+                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label">
+                                <h1>Título da Página</h1>
+                            </label>
                             <input type="text" name="title" class="input-titulo-de-cabecario" id="inomedapagina">
 
-                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Autor</h1></label>
+                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label">
+                                <h1>Autor</h1>
+                            </label>
                             <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor">
-                            
-                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Sumário</h1></label>
+
+                            <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label">
+                                <h1>Sumário</h1>
+                            </label>
                             <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor">
 
-                            <label for="summernote" class="titulo-de-cabecario-label"><h1>Conteúdo da Página</h1></label>
-                            <textarea name="content" id="summernote"></textarea>
+                            <label for="summernote" class="titulo-de-cabecario-label">
+                                <h1>Conteúdo da Página</h1>
+                            </label>
+                            <textarea name="content" id="summernote" class="textarea-conteudo"></textarea>
                         </div>
                     </div>
-                    <div class="conteudo-fundo">
-                        <input type="submit" value="Criar Nova Página" name="criarnovapagina">
-                    </div>
+                    
                 </form>
                 
             </div>
@@ -90,12 +95,12 @@ include ("header.php");
         </section>
     </main>
     <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-            placeholder: 'Esceva seu código aqui!',
-            tabsize: 5,
-            
-            maxHeight: 'calc(100%)',
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            placeholder: 'Escreva seu código aqui!',
+            tabsize: 2,
+            height: '200', // Altura inicial
+            maxHeight: '300', // Altura máxima
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],
@@ -104,11 +109,11 @@ include ("header.php");
                 ['table', ['table']],
                 ['insert', ['link', 'picture', 'video']],
                 ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-            });
-            $('.note-editor').css('height', 'g');
-            $('.note-editable').css('height', '30vh'); 
+            ],
         });
+
+       
+    });
 </script>
 </body>
 </html>
