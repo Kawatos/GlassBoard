@@ -390,6 +390,32 @@ div.navmenu-usuario > a > span {
     font-size: 1.2em;
 }
 
+.conteudo-fundo-tabela {
+    display: flex;
+    padding: 0.3vw;
+    background-color: var(--cinzaescuro2);
+    margin-top: 3%;
+}
+
+.tabela-de-opcoes {
+    width: 100%;
+    background-color: var(--cinzaclaro2);
+    text-align: center;
+    padding: 0.5vh;
+}
+.tabela-de-opcoes > thead > tr > th {
+    background-color: var(--branco);
+    padding: 1vh;
+}
+
+.tabela-botoes > a {
+    text-decoration: none;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+}
+
+
+
 #area-de-edicao-do-site-classe-label > h1 {
     margin-top: 2vh;
 }

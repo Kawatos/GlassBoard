@@ -82,34 +82,36 @@ include ("header.php");
                         <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
                     </div>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Data da Publicação</th>
-                            <th>Título</th>
-                            <th>Artigo</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        while ($data = $resultDocuments->fetch_assoc()) {
-                            ?>
+                <div class="conteudo-fundo-tabela">
+                    <table class="tabela-de-opcoes">
+                        <thead class="tabela-de-opcoes-head">
                             <tr>
-                                <td><?php echo ($data["date"]); ?></td>
-                                <td><?php echo ($data["title"]); ?></td>
-                                <td><?php echo ($data["summary"]); ?></td>
-                                <td>
-                                    <a class="btn btn-info" href="visualizador.php?id=<?php echo ($data["id"]); ?>">View</a>
-                                    <a class="btn btn-warning" href="editarsite.php?id=<?php echo ($data["id"]); ?>">Edit</a>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo ($data["id"]); ?>">delete</a>
-                                </td>
+                                <th>Título</th>
+                                <th>Sumário</th>
+                                <th>Data da Publicação</th>
+                                <th>Opções</th>
                             </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($data = $resultDocuments->fetch_assoc()) {
+                                ?>
+                                <tr>
+                                    <td><?php echo ($data["title"]); ?></td>
+                                    <td><?php echo ($data["summary"]); ?></td>
+                                    <td><?php echo ($data["date"]); ?></td>
+                                    <td class="tabela-botoes">
+                                        <a class="btn btn-info" href="visualizador.php?id=<?php echo ($data["id"]); ?>">View</a>
+                                        <a class="btn btn-warning" href="editarsite.php?id=<?php echo ($data["id"]); ?>">Edit</a>
+                                        <a class="btn btn-danger" href="delete.php?id=<?php echo ($data["id"]); ?>">delete</a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <footer>
             
