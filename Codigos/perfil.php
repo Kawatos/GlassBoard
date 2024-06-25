@@ -70,22 +70,21 @@ include ("header.php");
                 <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
                     <div class="conteudo-opcoes-criar-site-esquerdo">
                         <p>
-                            Clique no botão ao lado para adicionar uma nova página ao seu site!
-                            Ou se preferir, basta continuar editando a página atual.
+                            Aqui você pode atualizar as suas informações de usuário ou excluir a sua conta!
                         </p>
                     </div>
-                    <div class="conteudo-opcoes-criar-site">
-                        <input type="submit" value="Atualizar Informações" name="update-perfil">
-                    </div>
+                    
+                    <input class="conteudo-opcoes-criar-site" type="submit" value="Atualizar" name="update-perfil">
+                    
 
-                    <div class="conteudo-opcoes-criar-site">
-                        <input type="submit" value="Apagar Usuario" name="delete-perfil" onclick="return confirmDelete()">
-                    </div>
+                    
+                    <input class="conteudo-opcoes-criar-site" type="submit" value="Apagar Usuario" name="delete-perfil" onclick="return confirmDelete()">
+                    
                 </div>
             
                 <div class="conteudo-fundo">
                     <div class="conteudo-opcoes" id="ieditar-pagina">
-                        <h1 class="titulo-de-opcao">Editar Página</h1>
+                        <h1 class="titulo-de-opcao">Editar Perfil</h1>
                         <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Seu nome</h1></label>
                         <input type="text" name="nome" class="input-titulo-de-cabecario" id="inomedapagina" value="<?php echo $nome; ?>">
                     

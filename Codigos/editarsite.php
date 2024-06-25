@@ -61,9 +61,7 @@ include ("header.php");
                                 Ou se preferir, basta continuar editando a pagina atual.
                             </p>
                         </div>
-                        <div class="conteudo-opcoes-criar-site">
-                            <input type="submit" value="Atualizar Página" name="update">
-                        </div>
+                        <input class="conteudo-opcoes-criar-site" type="submit" value="Atualizar Página" name="update">
                     </div>
                 
                     <div class="conteudo-fundo">
