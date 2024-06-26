@@ -253,7 +253,7 @@ div.navmenu-usuario > a > span {
 }
 
 
-#iconteudo-opcoes-criar-site{
+#iconteudo-opcoes-criar-site {
     height: 10vh;
 }
 
@@ -317,7 +317,22 @@ div.navmenu-usuario > a > span {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
     padding: 0.5vw;
 }
-.conteudo-opcoes-criar-site-esquerdo > p {
+
+.conteudo-opcoes-perfil-esquerdo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    color: var(--branco);
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    padding: 0.5vw;
+}
+
+.conteudo-opcoes-perfil-esquerdo > p {
     padding: 0.5vw;
 }
 
@@ -354,6 +369,17 @@ div.navmenu-usuario > a > span {
     width: 100%;
     padding: 2vw;
     height: 100vh;
+    padding-top: 0vh;
+}
+
+#ieditar-perfil {
+    display: block;
+    flex-direction: column;
+    height: fit-content;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2vw;
+    height: 50vh;
     padding-top: 0vh;
 }
 

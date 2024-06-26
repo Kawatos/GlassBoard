@@ -68,7 +68,7 @@ include ("header.php");
         <div class="conteudo-fundo">
             <form action="processos.php" method="post">
                 <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
-                    <div class="conteudo-opcoes-criar-site-esquerdo">
+                    <div class="conteudo-opcoes-perfil-esquerdo">
                         <p>
                             Aqui você pode atualizar as suas informações de usuário ou excluir a sua conta!
                         </p>
@@ -83,7 +83,7 @@ include ("header.php");
                 </div>
             
                 <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes" id="ieditar-pagina">
+                    <div class="conteudo-opcoes" id="ieditar-perfil">
                         <h1 class="titulo-de-opcao">Editar Perfil</h1>
                         <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Seu nome</h1></label>
                         <input type="text" name="nome" class="input-titulo-de-cabecario" id="inomedapagina" value="<?php echo $nome; ?>">
