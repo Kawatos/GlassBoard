@@ -17,7 +17,7 @@
             </div>
             <div id="formulario-menu">
                 <h1>Preencha seus dados no campo abaixo:</h1>
-                <p>
+                <p id="erro-cadastro">
                 <?php
                 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {

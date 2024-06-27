@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['login'] = $login;
-        $_SESSION['user_id'] = $row['id']; // Adiciona o ID do usuário na sessão
-        header("Location: sites.php"); // Redireciona para a página de feedback
+        $_SESSION['user_id'] = $row['id']; 
+        header("Location: sites.php"); 
         exit();
     } else {
-        echo "Usuário ou senha inválidos.";
+        $login_error = "Usuário ou senha inválidos.";
     }
 
     $conn->close();
@@ -57,7 +57,10 @@ ob_end_flush();
             </div>
             <div id="formulario-menu">
                 <form action="login.php" method="post" class="lpformulario">
-                    <h1>Login</h1> <br>
+                    <h1>Login</h1> 
+                    <?php if (!empty($login_error)): ?>
+                        <p><?php echo $login_error; ?></p>
+                    <?php endif; ?>
                     <div class="campo">
                         <span class="material-symbols-outlined">mail</span>
                         <input type="email" name="login" id="ilogin" placeholder="Seu e-mail" autocomplete="email" required maxlength="30">
