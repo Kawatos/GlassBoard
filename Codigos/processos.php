@@ -1,11 +1,13 @@
 <?php 
+session_start();
+include("connect.php");
 
 //TODO - como essa arquivo não é um view, é bom validar o request, para verificar se é $_POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Método de requisição inválido.");
 }
 
-session_start();
+
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
@@ -16,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
     die("Erro: ID do usuário não está definido na sessão.");
 }
 
-include("connect.php");
+
 
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
