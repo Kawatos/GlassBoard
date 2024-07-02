@@ -25,23 +25,23 @@ $user_id = $_SESSION['user_id'];
     <title>GlassBoard Feedback</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/visualizador.css">
-    
 </head>
 <body class="visualizador-body">
     <main class="visualizador-main">
-        <a href="sites.php" class="conteudo-opcoes-novosite-botao">Voltar</a>
         <?php 
         $id = $_GET["id"];
-        $date = ""; // Inicializa a variável $date
+        $date = "";
         if ($id) {
             include("connect.php");
             $sqlSelectPost = "SELECT * FROM documentos WHERE id = $id";
             $result = mysqli_query($conn, $sqlSelectPost);
             while ($data = mysqli_fetch_array($result)) {
-                $date = $data['date']; // Armazena a data em uma variável
+                $date = $data['date'];
         ?>
-                <h1><?php echo $data['title']; ?></h1>
-                <div><?php echo $data['content']; ?></div>
+                <h1 class="h1-data"><?php echo $data['title']; ?></h1>
+                <div class="content-central">
+                    <?php echo $data['content']; ?>
+                </div>
         <?php
             }
         } else {
@@ -49,11 +49,9 @@ $user_id = $_SESSION['user_id'];
         }
         ?>
         <footer>
-            <!-- Conteúdo do rodapé, se necessário -->
             <p><?php echo $date; ?></p>
+            <a href="sites.php" class="conteudo-opcoes-novosite-botao">Voltar</a>
         </footer>
     </main>
 </body>
 </html>
-
-

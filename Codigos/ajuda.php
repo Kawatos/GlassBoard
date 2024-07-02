@@ -49,78 +49,10 @@ include ("header.php");
                      <h1>No que podemos ajudar você agora?</h1>
                 </div>
                 
-                <div class="conteudo-fundo">
-                    <a href="criarsite.php" class="conteudo-opcoes-novosite">
-                        <div>
-                            <h2>Exemplo</h2>
-                        </div>
-                    </a>
-                    <div class="conteudo-opcoes-novosite-direito">
-                        <p>
-                            Clique no botão ao lado para criar o seu primeiro site! <br>
-                            É realmente muito simples e intuitivo pois utilizamos de modelos pré-projetados!
-                        </p>
-                    </div>
-                </div>
+                
                 <div class="conteudo-fundo">
                     <div class="conteudo-opcoes">
                         <h2>Nome do Site 1</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 2</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 3</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 4</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 5</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 6</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 7</h2>
-                    </div>
-                    <div class="conteudo-opcoes-direito">
-                        <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
-                    </div>
-                </div>
-                <div class="conteudo-fundo">
-                    <div class="conteudo-opcoes">
-                        <h2>Nome do Site 8</h2>
                     </div>
                     <div class="conteudo-opcoes-direito">
                         <h3>Aqui devem ficar informações importantes sobre seu site.</h3>
