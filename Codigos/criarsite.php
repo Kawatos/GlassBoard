@@ -72,7 +72,7 @@ include ("header.php");
                             <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label">
                                 <h1>Autor</h1>
                             </label>
-                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" placeholder="<?php echo ($nome); ?>">
+                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($nome); ?>">
 
                             <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label">
                                 <h1>Sumário</h1>

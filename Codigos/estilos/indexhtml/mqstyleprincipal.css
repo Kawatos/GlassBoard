@@ -563,7 +563,18 @@ div.navmenu-usuario > a > span {
     margin: 1vw;
 }
 
+.note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable {
+    padding: 2vw;
+    min-height: 40vh;
+    max-height: 40vh;
+    overflow: auto;
+    word-wrap: break-word;
+    background-color: #eee
+}
 
+.note-editor.note-airframe .note-placeholder,.note-editor.note-frame .note-placeholder {
+    padding: 2vw
+}
 
 
 

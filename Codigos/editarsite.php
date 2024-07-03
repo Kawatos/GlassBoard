@@ -71,7 +71,7 @@ include ("header.php");
                             <input type="text" name="title" class="input-titulo-de-cabecario" id="inomedapagina" value="<?php echo htmlspecialchars($title); ?>">
                         
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Autor</h1></label>
-                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" placeholder="<?php echo ($nome); ?>" value="<?php echo htmlspecialchars($author); ?>">
+                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($author); ?>">
                             
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Sumário</h1></label>
                             <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($summary); ?>">
