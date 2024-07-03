@@ -42,6 +42,7 @@ if ($resultUser->num_rows > 0) {
 <?php 
 include ("header.php");
 ?>
+            
             <div class="conteudo-editor" id="iconteudo">
                 
                 <div class="conteudo-informacional">
@@ -71,7 +72,7 @@ include ("header.php");
                             <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label">
                                 <h1>Autor</h1>
                             </label>
-                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor">
+                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" placeholder="<?php echo ($nome); ?>">
 
                             <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label">
                                 <h1>Sumário</h1>
@@ -99,8 +100,8 @@ include ("header.php");
         $('#summernote').summernote({
             placeholder: 'Escreva seu código aqui!',
             tabsize: 2,
-            height: '200', // Altura inicial
-            maxHeight: '300', // Altura máxima
+            /* height: '200', // Altura inicial
+            maxHeight: '300', // Altura máxima */
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],

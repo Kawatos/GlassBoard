@@ -71,7 +71,7 @@ include ("header.php");
                             <input type="text" name="title" class="input-titulo-de-cabecario" id="inomedapagina" value="<?php echo htmlspecialchars($title); ?>">
                         
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Autor</h1></label>
-                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($author); ?>">
+                            <input type="text" name="author" class="input-titulo-de-cabecario" id="inomedoautor" placeholder="<?php echo ($nome); ?>" value="<?php echo htmlspecialchars($author); ?>">
                             
                             <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Sumário</h1></label>
                             <input type="text" name="summary" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($summary); ?>">
@@ -92,10 +92,11 @@ include ("header.php");
     </main>
     <script>
         $(document).ready(function() {
-            $('#summernote').summernote({
-            placeholder: 'Esceva seu código aqui!',
-            tabsize: 5,
-            maxHeight: 'calc(100%)',
+        $('#summernote').summernote({
+            placeholder: 'Escreva seu código aqui!',
+            tabsize: 2,
+            /* height: '200', // Altura inicial
+            maxHeight: '300', // Altura máxima */
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],
@@ -104,11 +105,11 @@ include ("header.php");
                 ['table', ['table']],
                 ['insert', ['link', 'picture', 'video']],
                 ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-            });
-            $('.note-editor').css('height', 'g');
-            $('.note-editable').css('height', '30vh'); 
+            ],
         });
+
+       
+    });
     </script>
 </body>
 </html>

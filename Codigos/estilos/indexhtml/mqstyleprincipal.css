@@ -39,6 +39,7 @@
 
 
 
+
 main {
     height: 100vh;
     background: url(imagens/pexels-scott-webb-532568.jpg) no-repeat;
@@ -561,6 +562,8 @@ div.navmenu-usuario > a > span {
 #erro-cadastro {
     margin: 1vw;
 }
+
+
 
 
 

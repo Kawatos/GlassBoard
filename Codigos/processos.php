@@ -7,8 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Método de requisição inválido.");
 }
 
-
-
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit();
@@ -18,13 +16,11 @@ if (!isset($_SESSION['user_id'])) {
     die("Erro: ID do usuário não está definido na sessão.");
 }
 
-
-
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-$user_id = $_SESSION['user_id']; ////
+$user_id = $_SESSION['user_id'];
 
 // Consultas SQL
 function executeQuery($conn, $sql, $params, $types) {
@@ -52,20 +48,17 @@ if (isset($_POST["criarnovapagina"])) {
     exit();
 }
 
-
-
 if (isset($_POST["update"])) {
     $title = $_POST["title"];
     $summary = $_POST["summary"];
     $content = $_POST["content"];
-    $date = $_POST["date"];
     $id = $_POST["id"];
     $author = $_POST["author"];
 
-    $sqlUpdate = "UPDATE documentos SET title = ?, summary = ?, content = ?, date = ?, author = ? WHERE id = ? AND user_id = ?";
-    $params = [$title, $summary, $content, $date, $author, $id, $user_id];
+    $sqlUpdate = "UPDATE documentos SET title = ?, summary = ?, content = ?, date = NOW(), author = ? WHERE id = ? AND user_id = ?";
+    $params = [$title, $summary, $content, $author, $id, $user_id];
 
-    executeQuery($conn, $sqlUpdate, $params, 'ssssisi');
+    executeQuery($conn, $sqlUpdate, $params, 'ssssis');
     header("Location: sites.php");
     exit();
 }
@@ -93,7 +86,6 @@ if (isset($_POST["delete-perfil"])) {
     header("Location: logout.php");
     exit();
 }
-
 
 if (isset($_POST["feedback"])) {
     $message = $_POST["mensagem"];
