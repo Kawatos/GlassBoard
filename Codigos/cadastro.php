@@ -16,7 +16,7 @@
                 <h1 id="logo">GlassBoard</h1>
             </div>
             <div id="formulario-menu">
-                <h1>Preencha seus dados no campo abaixo:</h1>
+                <h1 class="mensagemini">Preencha seus dados no campo abaixo:</h1>
                 <p id="erro-cadastro">
                 <?php
                 

@@ -57,7 +57,7 @@ ob_end_flush();
             </div>
             <div id="formulario-menu">
                 <form action="login.php" method="post" class="lpformulario">
-                    <h1>Login</h1> 
+                    <h1 class="mensagemini">Login</h1> 
                     <?php if (!empty($login_error)): ?>
                         <p><?php echo $login_error; ?></p>
                     <?php endif; ?>
