@@ -39,26 +39,20 @@
 
 
 
-@media screen and (min-width: 1300px) and (min-height: 600px) {
-    .table {
-        font-size: 0.1em;
-    }
-
+@media screen and (min-width: 1200px) and (min-height: 600px) {
+    
     .headermenu {
-        min-height: 3vh;
-        max-height: 3vh;
-        font-size: 0.8em;
+        min-height: 6vh;
+        max-height: 6vh;
     }
 
     nav.navmenu {
         max-height: 6vh;
     }
 
-    .conteudo {
-        height: calc(100vh - 4vh);
-    }
+    
     .conteudo-informacional > h1 {
-        font-size: 0.5em;
+        font-size: 1.2em;
     }
     .conteudo-opcoes-novosite {
         max-height: 12vh;
@@ -79,10 +73,12 @@
         font-size: 1em;
     }
 
+
 }
 
 
-@media screen and (max-width: 1400px) and (max-height: 800px) {
+
+@media screen and (min-width: 1800px) and (min-height: 900px) {
     
     .headermenu {
         min-height: 6vh;
@@ -93,9 +89,7 @@
         max-height: 6vh;
     }
 
-    .conteudo {
-        height: calc(100vh - 6vh);
-    }
+    
     .conteudo-informacional > h1 {
         font-size: 1.2em;
     }
