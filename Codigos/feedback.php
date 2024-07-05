@@ -47,8 +47,8 @@ include ("header.php");
                 </div>
                 <div class="conteudo-fundo">
                     <div class="conteudo-opcoes-area-texto" id="caixa-do-feedback">
-                        <h1 class="titulo-de-opcao">A sua opinião é realmente muito importante para mim!</h1>
-                        <h2>Não tenha medo de elogiar ou de criticar. <br>Críticas construtivas são tão bem-vindas quanto elogios!</h2>
+                        <h1 class="titulo-de-opcao" >A sua opinião é realmente muito importante para mim!</h1>
+                        <h2 id="h2-feedback">Não tenha medo de elogiar ou de criticar. <br>Críticas construtivas são tão bem-vindas quanto elogios!</h2>
                         <p id="mensagemdofeedback"><?php if (isset($feedback)) { echo "$feedback"; } ?></p>
                         <form method="post" action="processos.php">
                             <textarea name="mensagem" class="area-de-edicao-do-site-classe" id="iarea-de-edicao-do-feedback" placeholder="Digite sua mensagem aqui..." required maxlength="200"></textarea>

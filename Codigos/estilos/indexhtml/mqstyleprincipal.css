@@ -73,6 +73,30 @@
         font-size: 1em;
     }
 
+    .tabela-botoes > a {
+        display: inline-block;
+        width: auto;
+        text-decoration: none;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        font-size: 0.6em;
+        
+    }
+
+    .titulo-de-opcao {
+        color: var(--cinzaclaro2);
+        background-color: var(--cinzaescuro2);
+        padding: 0.4vw;
+        font-size: 1.2em;
+    
+    }
+
+    #h2-feedback {
+        font-size: 0.1em;
+    }
+
 
 }
 
@@ -110,6 +134,25 @@
     }
     .conteudo-fundo > div > h3 {
         font-size: 1em;
+    }
+
+    .tabela-botoes > a {
+        display: inline-block;
+        width: auto;
+        text-decoration: none;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        font-size: 0.9em;
+        
+    }
+
+    .titulo-de-opcao {
+        color: var(--cinzaclaro2);
+        background-color: var(--cinzaescuro2);
+        padding: 1vw;
+    
     }
 
 
