@@ -32,10 +32,11 @@
     display: block;
     position: fixed;
     margin-top: -10vh;
-    padding: 2vh;
+    padding: 1.5vh;
     text-align: center;
     background-color: var(--preto);
     color: var(--branco);
+    font-size: 1em;
     width: 100%;
 }
 
@@ -54,6 +55,7 @@
 .content-central > h1 {
     margin: 1vh;
     margin-bottom: 2vh;
+    font-size: 1.2em;
 }
 
 

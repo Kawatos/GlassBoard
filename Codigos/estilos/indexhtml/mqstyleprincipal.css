@@ -45,7 +45,7 @@
 
     nav.navmenu {
         max-height: 3vh;
-        font-size: 0.6em;
+        font-size: 0.8em;
     }
 
     div.navmenu-usuario > a > span {
@@ -100,7 +100,7 @@
         text-decoration: none;
         padding-top: 1vh;
         padding-bottom: 1vh;
-        font-size: 0.7em;
+        font-size: 0.8em;
         
     }
 
@@ -108,7 +108,7 @@
         color: var(--cinzaclaro2);
         background-color: var(--cinzaescuro2);
         padding: 0.4vw;
-        font-size: 0.7em;
+        font-size: 1em;
     
     }
 

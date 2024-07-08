@@ -159,6 +159,9 @@ div.navmenu-usuario > a > span {
     margin-top: 1vh;
 }
 
+.form-perfil {
+    width: 100%;
+}
 
 .conteudo {
     margin: auto;
@@ -177,7 +180,7 @@ div.navmenu-usuario > a > span {
     margin-bottom: 1vh;
     width: 80%;
     padding: 3vw;
-    height: calc(100vh - 4.5vh);
+    height: calc(100vh - 3vh);
     background-color: var(--cinzaescuro1);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
     background-size: cover;
@@ -327,6 +330,10 @@ div.navmenu-usuario > a > span {
     padding: 0.5vw;
 }
 
+.conteudo-opcoes-criar-site-esquerdo > p {
+    font-size: 0.8em;
+}
+
 .conteudo-opcoes-perfil-esquerdo {
     display: flex;
     align-items: center;
@@ -397,7 +404,7 @@ div.navmenu-usuario > a > span {
     color: var(--cinzaclaro2);
     background-color: var(--cinzaescuro2);
     padding: 1vw;
-    font-size: 0.7em;
+    font-size: 1em;
 
 }
 

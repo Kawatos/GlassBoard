@@ -67,7 +67,7 @@ include ("header.php");
             <h1>Perfil</h1>
         </div>
         <div class="conteudo-fundo">
-            <form action="processos.php" method="post">
+            <form action="processos.php" method="post" class="form-perfil">
                 <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
                     <div class="conteudo-opcoes-perfil-esquerdo">
                         <p>
