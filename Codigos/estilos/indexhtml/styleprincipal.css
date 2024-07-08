@@ -66,8 +66,6 @@ body, html {
     display: flex;
     width: 100%;
     color: var(--branco);
-    min-height: 4.5vh;
-    max-height: 4.5vh;
 }
 
 nav.navmenu {
@@ -144,9 +142,9 @@ div.navmenu-usuario > a > span {
 
 .menu-lateral-esquerdo {
     display: block;
-    width: 5%;
+    width: 2vw;
     position: absolute;
-    height: calc(100vh - 4.5vh);
+    height: calc(100vh - 3vh);
     background-color: var(--cinzaescuro2);
 }
 
@@ -157,8 +155,8 @@ div.navmenu-usuario > a > span {
     display: flex;
     text-decoration: none;
     color: var(--cinzaclaro2);
-    padding: 2vw;
-    margin: auto;
+    padding: 0.5vw;
+    margin-top: 1vh;
 }
 
 
@@ -192,6 +190,16 @@ div.navmenu-usuario > a > span {
     padding: 0.3vw;
     background-color: var(--cinzaescuro2);
     margin-top: 3%;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+.conteudo-fundo > form > div {
+    
+    margin: auto;
+
 }
 
 .conteudo-fundo > a {
@@ -243,8 +251,7 @@ div.navmenu-usuario > a > span {
     justify-content: center;
     width: 50%;
     height: 100%;
-    max-height: 10vh;
-    min-height: 10vh;
+    
     background-color: var(--branco);
     margin: 1vw;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
@@ -256,10 +263,11 @@ div.navmenu-usuario > a > span {
 
 #iconteudo-opcoes-criar-site {
     height: 10vh;
+    
 }
 
 .conteudo-opcoes-criar-site {
-    font-size: 1.2em;
+    font-size: 0.7em;
     font-weight: bold;
     color: var(--cinzaescuro2);
     align-items: center;
@@ -272,6 +280,7 @@ div.navmenu-usuario > a > span {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
     border: none;
+    border-radius: 5px;
 }
 
 .conteudo-opcoes-criar-site:hover {
@@ -297,8 +306,7 @@ div.navmenu-usuario > a > span {
 .conteudo-opcoes-novosite-direito {
     display: inline-block;
     width: 50%;
-    height: 50%;
-    min-height: 10vh;
+    
     color: var(--branco);
     margin: 1vw;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
@@ -335,6 +343,7 @@ div.navmenu-usuario > a > span {
 
 .conteudo-opcoes-perfil-esquerdo > p {
     padding: 0.5vw;
+    font-size: 0.7em;
 }
 
 .conteudo-informacional {
@@ -342,8 +351,8 @@ div.navmenu-usuario > a > span {
     font-size: 1.5em;
     padding: 1vw;
     padding-left: 2vw;
-    padding-top: 10vh;
-    margin-top: -10vh;
+    padding-top: 4vh;
+    margin-top: -8vh;
     width: 100%;
     background-color: var(--cinzaescuro2);
 }
@@ -388,6 +397,7 @@ div.navmenu-usuario > a > span {
     color: var(--cinzaclaro2);
     background-color: var(--cinzaescuro2);
     padding: 1vw;
+    font-size: 0.7em;
 
 }
 
@@ -395,12 +405,11 @@ div.navmenu-usuario > a > span {
 .titulo-de-cabecario-label > h1 {
     display: block;
     width: 100%;
-    height: 5vh;
-    font-size: 1em;
+    font-size: 0.7em;
     font-weight: solid;
     color: var(--cinzaescuro2);
     margin-bottom: 0.5vh;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 .input-titulo-de-cabecario {
@@ -412,7 +421,7 @@ div.navmenu-usuario > a > span {
     border: 1px solid;
     border-color: var(--branco);
     padding: 0.5vw;
-    font-size: 1.5em;
+    font-size: 0.7em;
 }
 
 
@@ -425,7 +434,7 @@ div.navmenu-usuario > a > span {
     border: 1px solid;
     border-color: var(--branco);
     padding: 0.5vw;
-    font-size: 1.2em;
+    font-size: 0.7em;
 }
 
 .conteudo-fundo-tabela {
@@ -530,9 +539,9 @@ div.navmenu-usuario > a > span {
     height: 60vh;
 }
 
-#caixa-do-feedback > h2 {
+#h2-feedback {
     padding: 1vw;
-    font-size: 1.2em;
+    font-size: 0.7em;
     color: var(--cinzaescuro2);
 }
 
@@ -546,7 +555,8 @@ div.navmenu-usuario > a > span {
     height: 5vh;
     border: 2px solid var(--cinzaescuro2);
     color: var(--cinzaescuro2);
-    font-size: 1.2em;
+    font-size: 0.7em;
+    border-radius: 5px;
 }
 
 #botao-do-feedback:hover {

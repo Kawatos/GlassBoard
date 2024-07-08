@@ -59,7 +59,7 @@ ob_end_flush();
                 <form action="login.php" method="post" class="lpformulario">
                     <h1 class="mensagemini">Login</h1> 
                     <?php if (!empty($login_error)): ?>
-                        <p><?php echo $login_error; ?></p>
+                        <p class="lpmsg-erro"><?php echo $login_error; ?></p>
                     <?php endif; ?>
                     <div class="campo">
                         <span class="material-symbols-outlined">mail</span>

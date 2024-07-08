@@ -16,8 +16,9 @@
                 <h1 id="logo">GlassBoard</h1>
             </div>
             <div id="formulario-menu">
+                <form action="cadastro.php" method="post" class="lpformulario">
                 <h1 class="mensagemini">Preencha seus dados no campo abaixo:</h1>
-                <p id="erro-cadastro">
+                <p class="lpmsg-erro">
                 <?php
                 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -45,7 +46,6 @@
                 ?>
 
                 </p>
-                <form action="cadastro.php" method="post" class="lpformulario">
                     <div class="campo">
                         <span class="material-symbols-outlined">person</span>
                         <input type="text" name="primeironome" id="iprimeirologin" placeholder="Seu nome" autocomplete="name" required maxlength="30">
