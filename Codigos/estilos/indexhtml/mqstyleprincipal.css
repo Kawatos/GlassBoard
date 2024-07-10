@@ -137,8 +137,8 @@
     }
 
     .conteudo-opcoes-novosite {
-        max-height: 12vh;
-        min-height: 10vh;
+        max-height: 7vh;
+        min-height: 7vh;
     }
 
     #conteudo-opcoes-novosite-botao {
