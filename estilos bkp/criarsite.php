@@ -2,8 +2,6 @@
 
 session_start();
 
-include("connect.php");
-
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit();
@@ -39,8 +37,8 @@ if ($resultUser->num_rows > 0) {
     echo "Dados não encontrados";
     exit();
 }
-
 ?>
+
 <?php 
 include ("header.php");
 ?>
