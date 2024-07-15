@@ -1,6 +1,9 @@
 <?php 
 session_start();
-include("connect.php");
+include "lib/classes/DatabaseControler.php";
+
+$dbController = new DatabaseController();
+
 
 //TODO - como essa arquivo não é um view, é bom validar o request, para verificar se é $_POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -15,6 +18,8 @@ if (!isset($_SESSION['login'])) {
 if (!isset($_SESSION['user_id'])) {
     die("Erro: ID do usuário não está definido na sessão.");
 }
+
+$conn = $dbController->conn;
 
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
@@ -32,40 +37,6 @@ function executeQuery($conn, $sql, $params, $types) {
     $stmt->bind_param($types, ...$params);
     $stmt->execute();
     return $stmt->get_result();
-}
-
-class PaginaController {
-    private $conn;
-    private $user_id;
-
-    
-
-    public function criarNovaPagina($dados) {
-        if (isset($dados["criarnovapagina"])) {
-            $title = $dados["title"];
-            $summary = $dados["summary"];
-            $content = $dados["content"];
-            $author = $dados["author"];
-
-            $this->inserirPagina($title, $summary, $content, $author);
-            header("Location: sites.php");
-            exit();
-        }
-    }
-
-    private function inserirPagina($title, $summary, $content, $author) {
-        $sqlInsert = "INSERT INTO documentos (date, title, summary, content, author, user_id) VALUES (NOW(), ?, ?, ?, ?, ?)";
-        $params = [$title, $summary, $content, $author, $this->user_id];
-
-        $this->executeQuery($sqlInsert, $params, 'ssssi');
-    }
-
-    private function executeQuery($sql, $params, $types) {
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param($types, ...$params);
-        $stmt->execute();
-        $stmt->close();
-    }
 }
 
 if (isset($_POST["update"])) {

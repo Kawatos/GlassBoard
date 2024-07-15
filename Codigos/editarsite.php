@@ -1,5 +1,9 @@
 <?php
 session_start();
+include "lib/classes/DatabaseControler.php";
+$dbController = new DatabaseController();
+
+$conn = $dbController->conn;
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
@@ -8,7 +12,6 @@ if (!isset($_SESSION['login'])) {
 
 $user_id = $_SESSION['user_id'];
 
-include("connect.php");
 
 // Buscar o nome do usuário
 $sqlUser = "SELECT nome FROM usuarios WHERE id = ?";

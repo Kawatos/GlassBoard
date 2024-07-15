@@ -1,8 +1,12 @@
 <?php
-
 session_start();
 
-include("connect.php");
+include "lib/classes/DatabaseControler.php";
+include "lib/classes/PaginaController.php";
+
+$dbController = new DatabaseController();
+
+$conn = $dbController->conn;
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
@@ -12,10 +16,6 @@ if (!isset($_SESSION['login'])) {
 if (!isset($_SESSION['user_id'])) {
     die("Erro: ID do usuário não está definido na sessão.");
 }
-
-include("connect.php");
-
-
 
 $user_id = $_SESSION['user_id'];
 
@@ -38,6 +38,18 @@ if ($resultUser->num_rows > 0) {
 } else {
     echo "Dados não encontrados";
     exit();
+}
+
+// Cria uma instância do PaginaController
+$paginaController = new PaginaController();
+
+
+// Verifica se o formulário foi enviado para criar uma nova página
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $paginaController->criarNovaPagina($_POST);
+    if ($paginaController === false) {
+        die("Erro na preparação da consulta SQL (pagina): " . $conn->error);
+    }
 }
 
 ?>
