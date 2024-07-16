@@ -40,16 +40,17 @@ if ($resultUser->num_rows > 0) {
     exit();
 }
 
-// Cria uma instância do PaginaController
-$paginaController = new PaginaController();
+
+$paginaController = new PaginaController($conn, $user_id);
 
 
-// Verifica se o formulário foi enviado para criar uma nova página
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $paginaController->criarNovaPagina($_POST);
-    if ($paginaController === false) {
+    $retorno = $paginaController->criarNovaPagina($_POST);
+    if ($retorno === false) {
         die("Erro na preparação da consulta SQL (pagina): " . $conn->error);
     }
+    header("Location: sites.php");
 }
 
 ?>
@@ -63,7 +64,7 @@ include ("header.php");
                      <h1>Crie seu site aqui!</h1>
                 </div>
                 
-                <form action="processos.php" method="post">
+                <form action="criarsite.php" method="post">
                     <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
                         
                         <div class="conteudo-opcoes-criar-site-esquerdo">

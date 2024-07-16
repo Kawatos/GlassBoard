@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "lib/classes/DatabaseControler.php";
-include "lib/classes/PaginaController.php";
 $dbController = new DatabaseController();
 
 $conn = $dbController->conn;
@@ -14,6 +13,7 @@ if (!isset($_SESSION['login'])) {
 $user_id = $_SESSION['user_id'];
 
 
+// Buscar o nome do usuário
 $sqlUser = "SELECT nome FROM usuarios WHERE id = ?";
 $stmtUser = $conn->prepare($sqlUser);
 $stmtUser->bind_param("i", $user_id);
@@ -47,19 +47,6 @@ if ($id) {
 } else {
     echo "Nenhuma postagem encontrada";
 }
-
-$paginaController = new PaginaController($conn, $user_id);
-
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $retorno = $paginaController->editarPagina($_POST);
-    if ($retorno === false) {
-        die("Erro na preparação da consulta SQL (pagina): " . $conn->error);
-    }
-    header("Location: sites.php");
-}
-
 ?>
 
 <?php 
