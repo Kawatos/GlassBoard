@@ -42,6 +42,33 @@ class PaginaController {
         return false;
     }
 
+    public function deletePagina($id) {
+        $sqlDelete = "DELETE FROM documentos WHERE id = ? AND user_id = ?";
+        $params = [$id, $this->user_id];
+
+        return $this->executeQuery($sqlDelete, $params, 'ii');
+    }
+
+    public function getDocumento($id) {
+        $sqlSelect = "SELECT * FROM documentos WHERE id = ? AND user_id = ?";
+        $params = [$id, $this->user_id];
+        
+        $stmt = $this->conn->prepare($sqlSelect);
+        if ($stmt === false) {
+            die("Erro na preparação da consulta: " . $this->conn->error);
+        }
+        $stmt->bind_param('ii', ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
+    }
+
 
     private function executeQuery($sql, $params, $types) {
         $stmt = $this->conn->prepare($sql);

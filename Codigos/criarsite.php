@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include "lib/classes/DatabaseControler.php";
+include "lib/classes/DatabaseController.php";
 include "lib/classes/PaginaController.php";
 
 $dbController = new DatabaseController();

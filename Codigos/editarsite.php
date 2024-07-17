@@ -1,9 +1,8 @@
 <?php
 session_start();
-include "lib/classes/DatabaseControler.php";
+include "lib/classes/DatabaseController.php";
 include "lib/classes/PaginaController.php";
 $dbController = new DatabaseController();
-
 $conn = $dbController->conn;
 
 if (!isset($_SESSION['login'])) {
@@ -12,7 +11,6 @@ if (!isset($_SESSION['login'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-
 
 $sqlUser = "SELECT nome FROM usuarios WHERE id = ?";
 $stmtUser = $conn->prepare($sqlUser);
@@ -27,30 +25,9 @@ if ($resultUser->num_rows > 0) {
     $nome = "Usuário";
 }
 
-$id = $_GET['id'];
-if ($id) {
-    $sqlEdit = "SELECT * FROM documentos WHERE id = ?";
-    $stmtEdit = $conn->prepare($sqlEdit);
-    $stmtEdit->bind_param("i", $id);
-    $stmtEdit->execute();
-    $resultEdit = $stmtEdit->get_result();
-
-    if ($resultEdit->num_rows > 0) {
-        $rowEdit = $resultEdit->fetch_assoc();
-        $title = $rowEdit['title'];
-        $author = $rowEdit['author'];
-        $summary = $rowEdit['summary'];
-        $content = $rowEdit['content'];
-    } else {
-        echo "Nenhuma postagem encontrada";
-    }
-} else {
-    echo "Nenhuma postagem encontrada";
-}
-
 $paginaController = new PaginaController($conn, $user_id);
 
-
+$id = $_GET['id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $retorno = $paginaController->editarPagina($_POST);
@@ -58,6 +35,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Erro na preparação da consulta SQL (pagina): " . $conn->error);
     }
     header("Location: sites.php");
+    exit();
+}
+
+if ($id) {
+    $documento = $paginaController->getDocumento($id);
+
+    if ($documento) {
+        $title = $documento['title'];
+        $author = $documento['author'];
+        $summary = $documento['summary'];
+        $content = $documento['content'];
+    } else {
+        echo "Nenhuma postagem encontrada";
+        exit();
+    }
+} else {
+    echo "Nenhuma postagem encontrada";
+    exit();
 }
 
 ?>

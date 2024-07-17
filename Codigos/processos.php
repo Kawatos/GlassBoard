@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "lib/classes/DatabaseControler.php";
+include "lib/classes/DatabaseController.php";
 
 $dbController = new DatabaseController();
 
