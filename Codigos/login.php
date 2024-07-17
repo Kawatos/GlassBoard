@@ -3,12 +3,6 @@ ob_start();
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-
-    /* $servername = "localhost";
-    $username = "id22176838_kawatos";
-    $password = "TCRCt000#";
-    $dbname = "id22176838_glassboard"; */
 
     include("connect.php");
 

@@ -17,9 +17,3 @@ if ($conn->connect_error) {
 
 
 
-<!--
-    $servername = "localhost";
-    $username = "id22176838_kawatos";
-    $password = "TCRCt000#";
-    $dbname = "id22176838_glassboard";
--->

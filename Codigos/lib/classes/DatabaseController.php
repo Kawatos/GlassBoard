@@ -13,8 +13,6 @@ class DatabaseController {
         $this->conn = $this->connect();
     }
     private function connect() {
-
-
         $conn = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPass, $this->dbName);
 
         if (!$conn) {
@@ -27,7 +25,5 @@ class DatabaseController {
 
         return $conn;
     }
-
-
 }
 ?>
