@@ -20,25 +20,18 @@
                 <h1 class="mensagemini">Preencha seus dados no campo abaixo:</h1>
                 <p class="lpmsg-erro">
                 <?php
-                
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    include("connect.php");
-                    if ($conn->connect_error) {
-                        die("Falha na conexão: " . $conn->connect_error);
-                    }
+                    include "lib/classes/DatabaseController.php";
+                    include "lib/classes/UserController.php";
 
-                    $nome = $_POST["primeironome"];
-                    $email = $_POST["primeirologin"];
-                    $senha = $_POST["primeirasenha"];
+                    $dbController = new DatabaseController();
+                    $conn = $dbController->conn;
+                    $userController = new UserController($conn);
 
-                    
-                    $sql = "INSERT INTO usuarios (nome, email, senha)
-                    VALUES ('$nome', '$email', '$senha')";
-
-                    if ($conn->query($sql) === TRUE) {
+                    if ($userController->criarNovoUsuario($_POST)) {
                         echo "Registro inserido com sucesso";
                     } else {
-                        echo "Erro ao inserir registro: " . $conn->error;
+                        echo "Erro ao inserir registro";
                     }
 
                     $conn->close();

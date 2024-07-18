@@ -1,6 +1,11 @@
 <?php
 session_start();
-include("connect.php");
+include "lib/classes/DatabaseController.php";
+include "lib/classes/UserController.php";
+
+$dbController = new DatabaseController();
+$conn = $dbController->conn;
+$userController = new UserController($conn);
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
@@ -11,46 +16,45 @@ if (!isset($_SESSION['user_id'])) {
     die("Erro: ID do usuário não está definido na sessão.");
 }
 
-
 $user_id = $_SESSION['user_id'];
 
-$sqlSelectDocuments = "SELECT * FROM documentos WHERE user_id = ?";
-$stmtDocuments = $conn->prepare($sqlSelectDocuments);
+// Obtém os dados do usuário para exibir no formulário
+$user = $userController->getUserById($user_id);
 
-if ($stmtDocuments === false) {
-    die("Erro na preparação da consulta SQL (documentos): " . $conn->error);
-}
-
-$stmtDocuments->bind_param("i", $user_id);
-$stmtDocuments->execute();
-$resultDocuments = $stmtDocuments->get_result();
-
-$sqlSelectUser = "SELECT email, nome, senha FROM usuarios WHERE id = ?";
-$stmtUser = $conn->prepare($sqlSelectUser);
-
-if ($stmtUser === false) {
-    die("Erro na preparação da consulta SQL (usuário): " . $conn->error);
-}
-
-$stmtUser->bind_param("i", $user_id);
-$stmtUser->execute();
-$resultUser = $stmtUser->get_result();
-
-if ($resultUser->num_rows > 0) {
-    $row = $resultUser->fetch_assoc();
-    $email = $row['email'];
-    $nome = $row['nome'];
-    $senha = $row['senha'];
+if ($user) {
+    $email = $user['email'];
+    $nome = $user['nome'];
+    $senha = $user['senha'];
 } else {
     echo "Dados não encontrados";
     exit();
 }
+
+// Processa as requisições de atualização e exclusão
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["update-perfil"])) {
+        if ($userController->editarUsuario($_POST, $user_id)) {
+            header("Location: perfil.php");
+            exit();
+        } else {
+            die("Dados não foram atualizados.");
+        }
+    }
+
+    if (isset($_POST["delete-perfil"])) {
+        if ($userController->apagarUsuario($user_id)) {
+            // Redirecionar para logout.php
+            header("Location: logout.php");
+            exit();
+        } else {
+            die("Erro ao apagar o usuário.");
+        }
+    }
+}
 ?>
-<?php 
-include ("header.php");
-?>
+<?php include ("header.php"); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +71,7 @@ include ("header.php");
             <h1>Perfil</h1>
         </div>
         <div class="conteudo-fundo">
-            <form action="processos.php" method="post" class="form-perfil">
+            <form action="perfil.php" method="post" class="form-perfil">
                 <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
                     <div class="conteudo-opcoes-perfil-esquerdo">
                         <p>
@@ -77,8 +81,6 @@ include ("header.php");
                     
                     <input class="conteudo-opcoes-criar-site" type="submit" value="Atualizar" name="update-perfil">
                     
-
-                    
                     <input class="conteudo-opcoes-criar-site" type="submit" value="Apagar Usuario" name="delete-perfil" onclick="return confirmDelete()">
                     
                 </div>
@@ -87,15 +89,15 @@ include ("header.php");
                     <div class="conteudo-opcoes" id="ieditar-perfil">
                         <h1 class="titulo-de-opcao">Editar Perfil</h1>
                         <label for="ninput-titulo-de-cabecario" class="titulo-de-cabecario-label"><h1>Seu nome</h1></label>
-                        <input type="text" name="nome" class="input-titulo-de-cabecario" id="inomedapagina" value="<?php echo $nome; ?>">
+                        <input type="text" name="nome" class="input-titulo-de-cabecario" id="inomedapagina" value="<?php echo htmlspecialchars($nome); ?>">
                     
                         <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Seu email</h1></label>
-                        <input type="email" name="email" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo $email; ?>">
+                        <input type="email" name="email" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($email); ?>">
                         
                         <label for="area-de-edicao-do-site" class="titulo-de-cabecario-label" id="area-de-edicao-do-site-classe"><h1>Sua senha</h1></label>
-                        <input type="text" name="senha" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo $senha; ?>">
+                        <input type="text" name="senha" class="input-titulo-de-cabecario" id="inomedoautor" value="<?php echo htmlspecialchars($senha); ?>">
 
-                        <input type="hidden" name="id" value="<?php echo $user_id; ?>">
+                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($user_id); ?>">
                     </div>
                 </div>
             </form>

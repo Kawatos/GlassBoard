@@ -2,32 +2,30 @@
 ob_start();
 session_start();
 
+include "lib/classes/DatabaseController.php";
+include "lib/classes/UserController.php";
+
+$dbController = new DatabaseController();
+$conn = $dbController->conn;
+$userController = new UserController($conn);
+
+$login_error = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    include("connect.php");
-
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
-    }
-
     $login = mysqli_real_escape_string($conn, $_POST["login"]);
     $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
 
-    $sql = "SELECT * FROM usuarios WHERE email='$login' AND (senha='$senha' OR senha='md5($senha)')";
-    $result = $conn->query($sql);
+    $user = $userController->login($login, $senha);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $_SESSION['nome'] = $row['nome'];
+    if ($user) {
+        $_SESSION['nome'] = $user['nome'];
         $_SESSION['login'] = $login;
-        $_SESSION['user_id'] = $row['id']; 
+        $_SESSION['user_id'] = $user['id']; 
         header("Location: sites.php"); 
         exit();
     } else {
         $login_error = "Usuário ou senha inválidos.";
     }
-
-    $conn->close();
 }
 
 ob_end_flush();
