@@ -41,13 +41,13 @@ class UserController {
         return $this->executeQuery($sqlDelete, $params, 'i');
     }
 
-    public function getUserById($user_id) {
-        $sqlSelect = "SELECT * FROM usuarios WHERE id = ?";
+    public function login($email, $senha) {
+        $sqlSelect = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
         $stmt = $this->conn->prepare($sqlSelect);
         if ($stmt === false) {
             die("Erro na preparação da consulta: " . $this->conn->error);
         }
-        $stmt->bind_param('i', $user_id);
+        $stmt->bind_param('ss', $email, $senha);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
