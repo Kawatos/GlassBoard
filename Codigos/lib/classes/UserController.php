@@ -42,7 +42,7 @@ class UserController {
     }
 
     public function login($email, $senha) {
-        die("Teste");
+        
         $sqlSelect = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
         $stmt = $this->conn->prepare($sqlSelect);
         if ($stmt === false) {
