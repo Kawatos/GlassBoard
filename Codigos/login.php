@@ -12,6 +12,7 @@ $userController = new UserController($conn);
 $login_error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $login = mysqli_real_escape_string($conn, $_POST["login"]);
     $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
 
@@ -48,7 +49,7 @@ ob_end_flush();
                 <h1 id="logo">GlassBoard</h1>
             </div>
             <div id="formulario-menu">
-                <form action="login.php" method="post" class="lpformulario">
+                <form action="login.php" name="login"method="post" class="lpformulario">
                     <h1 class="mensagemini">Login</h1> 
                     <?php if (!empty($login_error)): ?>
                         <p class="lpmsg-erro"><?php echo $login_error; ?></p>
