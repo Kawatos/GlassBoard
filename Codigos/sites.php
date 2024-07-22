@@ -1,6 +1,11 @@
 <?php
-
 session_start();
+include "lib/classes/DatabaseController.php";
+include "lib/classes/PaginaController.php";
+include "lib/classes/UserController.php";
+$dbController = new DatabaseController();
+$conn = $dbController->conn;
+$userController = new UserController($conn);
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
@@ -11,11 +16,18 @@ if (!isset($_SESSION['user_id'])) {
     die("Erro: ID do usuário não está definido na sessão.");
 }
 
-include("connect.php");
-
-
-
 $user_id = $_SESSION['user_id'];
+
+$user = $userController->getUserById($user_id);
+
+if ($user) {
+    $email = $user['email'];
+    $nome = $user['nome'];
+    $senha = $user['senha'];
+} else {
+    echo "Dados não encontrados";
+    exit();
+}
 
 $sqlSelectDocuments = "SELECT * FROM documentos WHERE user_id = ?";
 $stmtDocuments = $conn->prepare($sqlSelectDocuments);
@@ -28,27 +40,7 @@ $stmtDocuments->bind_param("i", $user_id);
 $stmtDocuments->execute();
 $resultDocuments = $stmtDocuments->get_result();
 
-//TODO - mesmo caso da query documentos
-$sqlSelectUser = "SELECT email, nome, senha FROM usuarios WHERE id = ?";
-$stmtUser = $conn->prepare($sqlSelectUser);
 
-if ($stmtUser === false) {
-    die("Erro na preparação da consulta SQL (usuário): " . $conn->error);
-}
-
-$stmtUser->bind_param("i", $user_id);
-$stmtUser->execute();
-$resultUser = $stmtUser->get_result();
-
-if ($resultUser->num_rows > 0) {
-    $row = $resultUser->fetch_assoc();
-    $email = $row['email'];
-    $nome = $row['nome'];
-    $senha = $row['senha'];
-} else {
-    echo "Dados não encontrados";
-    exit();
-}
 ?>
 
 <?php 

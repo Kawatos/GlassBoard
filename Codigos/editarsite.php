@@ -2,8 +2,10 @@
 session_start();
 include "lib/classes/DatabaseController.php";
 include "lib/classes/PaginaController.php";
+include "lib/classes/UserController.php";
 $dbController = new DatabaseController();
 $conn = $dbController->conn;
+$userController = new UserController($conn);
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
@@ -12,17 +14,15 @@ if (!isset($_SESSION['login'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$sqlUser = "SELECT nome FROM usuarios WHERE id = ?";
-$stmtUser = $conn->prepare($sqlUser);
-$stmtUser->bind_param("i", $user_id);
-$stmtUser->execute();
-$resultUser = $stmtUser->get_result();
+$user = $userController->getUserById($user_id);
 
-if ($resultUser->num_rows > 0) {
-    $rowUser = $resultUser->fetch_assoc();
-    $nome = $rowUser['nome'];
+if ($user) {
+    $email = $user['email'];
+    $nome = $user['nome'];
+    $senha = $user['senha'];
 } else {
-    $nome = "Usuário";
+    echo "Dados não encontrados";
+    exit();
 }
 
 $paginaController = new PaginaController($conn, $user_id);

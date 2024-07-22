@@ -42,13 +42,30 @@ class UserController {
     }
 
     public function login($email, $senha) {
-        die("Teste");
         $sqlSelect = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
         $stmt = $this->conn->prepare($sqlSelect);
         if ($stmt === false) {
             die("Erro na preparação da consulta: " . $this->conn->error);
         }
         $stmt->bind_param('ss', $email, $senha);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
+    }
+
+    public function getUserById($user_id) {
+        $sqlSelect = "SELECT * FROM usuarios WHERE id = ?";
+        $stmt = $this->conn->prepare($sqlSelect);
+        if ($stmt === false) {
+            die("Erro na preparação da consulta: " . $this->conn->error);
+        }
+        $stmt->bind_param('i', $user_id);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
