@@ -7,10 +7,13 @@ class UserController {
     }
 
     public function criarNovoUsuario($dados) {
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($dados["primeironome"]) && isset($dados["primeirologin"]) && isset($dados["primeirasenha"])) {
+        if ($this->isPostRequest() && $this->validarDados($dados, ["primeironome", "primeirologin", "primeirasenha"])) {
             $nome = $dados["primeironome"];
             $email = $dados["primeirologin"];
-            $senha = $dados["primeirasenha"];
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("E-mail inválido.");
+            }
+            $senha = password_hash($dados["primeirasenha"], PASSWORD_DEFAULT);
 
             $sqlInsert = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
             $params = [$nome, $email, $senha];
@@ -21,15 +24,29 @@ class UserController {
     }
 
     public function editarUsuario($dados, $user_id) {
-        if (isset($dados["update-perfil"])) {
+        if ($this->validarDados($dados, ["nome", "email"])) {
             $nome = $dados["nome"];
             $email = $dados["email"];
-            $senha = $dados["senha"];
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("E-mail inválido.");
+            }
 
-            $sqlUpdate = "UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?";
-            $params = [$nome, $email, $senha, $user_id];
+            $sqlUpdate = "UPDATE usuarios SET nome = ?, email = ?";
+            $params = [$nome, $email];
+            $types = 'ss';
 
-            return $this->executeQuery($sqlUpdate, $params, 'sssi');
+            if (!empty($dados["senha"])) {
+                $senha = password_hash($dados["senha"], PASSWORD_DEFAULT);
+                $sqlUpdate .= ", senha = ?";
+                $params[] = $senha;
+                $types .= 's';
+            }
+
+            $sqlUpdate .= " WHERE id = ?";
+            $params[] = $user_id;
+            $types .= 'i';
+
+            return $this->executeQuery($sqlUpdate, $params, $types);
         }
         return false;
     }
@@ -42,28 +59,38 @@ class UserController {
     }
 
     public function login($email, $senha) {
-        $sqlSelect = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+        $sqlSelect = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $this->conn->prepare($sqlSelect);
         if ($stmt === false) {
-            die("Erro na preparação da consulta: " . $this->conn->error);
+            throw new Exception("Erro na preparação da consulta: " . $this->conn->error);
         }
-        $stmt->bind_param('ss', $email, $senha);
+        $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
 
         if ($result->num_rows > 0) {
-            return $result->fetch_assoc();
+            $usuario = $result->fetch_assoc();
+
+            if (password_verify($senha, $usuario['senha'])) {
+                session_start();
+                $_SESSION['user_id'] = $usuario['id'];
+                $_SESSION['user_name'] = $usuario['nome'];
+                return $usuario;
+            } else {
+                echo "Senha incorreta.\n";
+            }
         } else {
-            return null;
+            echo "Usuário não encontrado.\n";
         }
+        return null;
     }
 
     public function getUserById($user_id) {
         $sqlSelect = "SELECT * FROM usuarios WHERE id = ?";
         $stmt = $this->conn->prepare($sqlSelect);
         if ($stmt === false) {
-            die("Erro na preparação da consulta: " . $this->conn->error);
+            throw new Exception("Erro na preparação da consulta: " . $this->conn->error);
         }
         $stmt->bind_param('i', $user_id);
         $stmt->execute();
@@ -80,12 +107,25 @@ class UserController {
     private function executeQuery($sql, $params, $types) {
         $stmt = $this->conn->prepare($sql);
         if ($stmt === false) {
-            die("Erro na preparação da consulta: " . $this->conn->error);
+            throw new Exception("Erro na preparação da consulta: " . $this->conn->error);
         }
         $stmt->bind_param($types, ...$params);
         $result = $stmt->execute();
         $stmt->close();
         return $result;
+    }
+
+    private function validarDados($dados, $camposNecessarios) {
+        foreach ($camposNecessarios as $campo) {
+            if (!isset($dados[$campo]) || empty($dados[$campo])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private function isPostRequest() {
+        return $_SERVER["REQUEST_METHOD"] === "POST";
     }
 }
 ?>
