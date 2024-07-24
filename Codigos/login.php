@@ -13,8 +13,8 @@ $login_error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $login = mysqli_real_escape_string($conn, $_POST["login"]);
-    $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
+    $login = $_POST["login"];
+    $senha =  $_POST["senha"];
 
     $user = $userController->login($login, $senha);
 

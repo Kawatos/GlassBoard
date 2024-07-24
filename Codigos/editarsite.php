@@ -64,7 +64,7 @@ include ("header.php");
                 <div class="conteudo-informacional">
                      <h1>Editar Site</h1>
                 </div>
-                <form action="processos.php" method="post">
+                <form action="editarsite.php" method="post">
                     <div class="conteudo-fundo" id="iconteudo-opcoes-criar-site">
                         <div class="conteudo-opcoes-criar-site-esquerdo">
                             <p>

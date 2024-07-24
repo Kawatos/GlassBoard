@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="estilos/indexhtml/style.css">
     <link rel="stylesheet" href="estilos/indexhtml/mqstyle.css">
-    
 </head>
 <body>
     <main>
@@ -17,28 +16,31 @@
             </div>
             <div id="formulario-menu">
                 <form action="cadastro.php" method="post" class="lpformulario">
-                <h1 class="mensagemini">Preencha seus dados no campo abaixo:</h1>
-                <p class="lpmsg-erro">
-                <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    include "lib/classes/DatabaseController.php";
-                    include "lib/classes/UserController.php";
+                    <h1 class="mensagemini">Preencha seus dados no campo abaixo:</h1>
+                    <p class="lpmsg-erro">
+                    <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        include "lib/classes/DatabaseController.php";
+                        include "lib/classes/UserController.php";
 
-                    $dbController = new DatabaseController();
-                    $conn = $dbController->conn;
-                    $userController = new UserController($conn);
+                        $dbController = new DatabaseController();
+                        $conn = $dbController->conn;
+                        $userController = new UserController($conn);
 
-                    if ($userController->criarNovoUsuario($_POST)) {
-                        echo "Registro inserido com sucesso";
-                    } else {
-                        echo "Erro ao inserir registro";
+                        try {
+                            if ($userController->criarNovoUsuario($_POST)) {
+                                echo "Registro inserido com sucesso";
+                            } else {
+                                echo "Erro ao inserir registro";
+                            }
+                        } catch (Exception $e) {
+                            echo "Erro: " . htmlspecialchars($e->getMessage());
+                        }
+
+                        $conn = null;  // Use null instead of $conn->close() in PDO
                     }
-
-                    $conn->close();
-                }
-                ?>
-
-                </p>
+                    ?>
+                    </p>
                     <div class="campo">
                         <span class="material-symbols-outlined">person</span>
                         <input type="text" name="primeironome" id="iprimeirologin" placeholder="Seu nome" autocomplete="name" required maxlength="30">
@@ -62,6 +64,5 @@
             </div>
         </section>
     </main>
-    
 </body>
 </html>

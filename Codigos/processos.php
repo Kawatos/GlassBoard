@@ -39,45 +39,6 @@ function executeQuery($conn, $sql, $params, $types) {
     return $stmt->get_result();
 }
 
-if (isset($_POST["update"])) {
-    $title = $_POST["title"];
-    $summary = $_POST["summary"];
-    $content = $_POST["content"];
-    $id = $_POST["id"];
-    $author = $_POST["author"];
-
-    $sqlUpdate = "UPDATE documentos SET title = ?, summary = ?, content = ?, date = NOW(), author = ? WHERE id = ? AND user_id = ?";
-    $params = [$title, $summary, $content, $author, $id, $user_id];
-
-    executeQuery($conn, $sqlUpdate, $params, 'ssssis');
-    header("Location: sites.php");
-    exit();
-}
-
-if (isset($_POST["update-perfil"])) {
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $nome = mysqli_real_escape_string($conn, $_POST["nome"]);
-    $senha = mysqli_real_escape_string($conn, $_POST["senha"]);
-
-    $sqlUpdate = "UPDATE usuarios SET email = '$email', nome = '$nome', senha = '$senha' WHERE id = '$user_id'";
-    if (mysqli_query($conn, $sqlUpdate)){
-        header("Location: perfil.php");
-    } else {
-        die("Dados não foram atualizados: " . mysqli_error($conn));
-    }
-}
-
-if (isset($_POST["delete-perfil"])) {
-    $sqlDelete = "DELETE FROM usuarios WHERE id = ?";
-    $params = [$user_id];
-
-    executeQuery($conn, $sqlDelete, $params, 'i');
-
-    // Redirecionar para logout.php
-    header("Location: logout.php");
-    exit();
-}
-
 if (isset($_POST["feedback"])) {
     $message = $_POST["mensagem"];
     
