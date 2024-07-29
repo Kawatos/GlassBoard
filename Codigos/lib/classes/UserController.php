@@ -11,7 +11,6 @@ class UserController {
             $nome = $dados["primeironome"];
             $email = $dados["primeirologin"];
             
-            // Depuração: Verifique o valor do e-mail
             if (empty($email)) {
                 throw new Exception("E-mail está vazio.");
             }
