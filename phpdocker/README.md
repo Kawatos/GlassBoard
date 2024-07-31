@@ -30,7 +30,7 @@ add your own hostname on your `/etc/hosts`
 
 Service|Address outside containers
 -------|--------------------------
-Webserver|[localhost:42000](http://localhost:42000)
+Webserver|[localhost:47000](http://localhost:47000)
 
 ## Hosts within your environment ##
 
@@ -62,7 +62,7 @@ php-fpm|php-fpm|9000
 As in all server environments, your application needs the correct file permissions to work properly. You can change the
 files throughout the container, so you won't care if the user exists or has the same ID on your host.
 
-`docker-compose exec php-fpm chown -R www-data:www-data /application/public`
+`docker-compose exec php-fpm chown -R www-data:www-data /public`
 
 # Recommendations #
 

@@ -75,7 +75,7 @@ add your own hostname on your <code>/etc/hosts</code></p>
 <tbody>
 <tr>
   <td>Webserver</td>
-  <td><a href="http://localhost:42000">localhost:42000</a></td>
+  <td><a href="http://localhost:47000">localhost:47000</a></td>
 </tr>
 </tbody>
 </table>
@@ -128,7 +128,7 @@ to run. Examples:
 <p>As in all server environments, your application needs the correct file permissions to work properly. You can change the
 files throughout the container, so you won't care if the user exists or has the same ID on your host.</p>
 
-<p><code>docker-compose exec php-fpm chown -R www-data:www-data /application/public</code></p>
+<p><code>docker-compose exec php-fpm chown -R www-data:www-data /public</code></p>
 
 <h1>Recommendations</h1>
 
