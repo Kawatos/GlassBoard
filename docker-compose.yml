@@ -2,6 +2,14 @@
 #                          Generated on phpdocker.io                          #
 ###############################################################################
 services:
+    myservice:
+        image: myapp:latest
+        environment:
+            MYSQL_HOST: host.docker.internal
+            MYSQL_USER: username
+            MYSQL_PASSWORD: password
+            MYSQL_DATABASE: dbname
+
     webserver:
         image: 'nginx:alpine'
         working_dir: /var/www/html
