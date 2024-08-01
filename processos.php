@@ -5,7 +5,6 @@ include "lib/classes/DatabaseController.php";
 $dbController = new DatabaseController();
 
 
-//TODO - como essa arquivo não é um view, é bom validar o request, para verificar se é $_POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Método de requisição inválido.");
 }

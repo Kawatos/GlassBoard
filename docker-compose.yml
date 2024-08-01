@@ -12,7 +12,7 @@ services:
             - '8070:80'
 
     php-fpm:
-        build: phpdocker/php-fpm
+        build: ./phpdocker/php-fpm
         working_dir: /var/www/html
         volumes:
             - '.:/var/www/html'
