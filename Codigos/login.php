@@ -65,7 +65,7 @@ ob_end_flush();
                         <label for="isenha">Senha</label>
                     </div>
                     <div class="botao-container">
-                        <a href="index.php" class="lpb1" id="lpbvoltar">Voltar</a>
+                        <a href="index.html" class="lpb1" id="lpbvoltar">Voltar</a>
                         <input type="submit" value="Entrar" class="lpb2" id="lpbentrar">
                         <a href="esqueci.php" class="lpb" id="lpbesqueci">Esqueci a senha<span id="spn" class="material-symbols-outlined">email</span></a>
                     </div>

@@ -57,7 +57,7 @@
                         <label for="iprimeirasenha">Crie uma senha</label>
                     </div>
                     <div class="botao-container">
-                        <a href="index.php" class="lpb1" id="lpbvoltar">Voltar</a>
+                        <a href="index.html" class="lpb1" id="lpbvoltar">Voltar</a>
                         <input type="submit" value="Cadastrar-se" class="lpb2" id="lpbcad">
                     </div>
                 </form>
